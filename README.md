@@ -12,6 +12,10 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
 * [Chrome APIs](https://developer.chrome.com/extensions/api_index)
 * [Example: Refined Github](https://github.com/sindresorhus/refined-github)
 
+**Language-Specific**
+* [TypeScript](https://www.typescriptlang.org/docs/home.html)
+* [HTML](https://www.w3schools.com/html/)
+
 **Using Github**
 * [Git Model](https://nvie.com/posts/a-successful-git-branching-model/): read this article to understand how working on features affects the repository and its contributors
 ## Steps to Making Changes
@@ -21,6 +25,7 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
 3. Make any change(s): `git add -A` (alternatively, `git add <filename>`) followed by `git commit -m <message>` (the message should be one sentence describing your changes)
     - Try to do this step every time you make a change that has an impact on the project
 4. Make a pull request to be reviewed: `git push origin <feature_name>`
+    - Be sure to open the pull request using the link that shows up (`https://github.com/.../pull/new/<feature_name>`)
     - This will show up on the repository [here](https://github.com/adapap/stevens-web-extension/pulls)
 5. Allow for someone to review your code, and then the change will be merged! Congratulations!
 
