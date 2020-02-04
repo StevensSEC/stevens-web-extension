@@ -7,6 +7,10 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
 - Use as a simple digital data store
 
 ## Contributing
+**Downloads**
+* [Visual Studio Code (VSCode)](https://code.visualstudio.com/download): code editor, supports everything needed for this project including Git integration, TypeScript support, and more
+* [Git](https://git-scm.com/downloads): CLI (command line interface) that allows you to work with other developers through repositories
+
 **Chrome Extensions**
 * [Getting Started](https://developer.chrome.com/extensions/getstarted)
 * [Chrome APIs](https://developer.chrome.com/extensions/api_index)
@@ -18,6 +22,10 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
 
 **Using Github**
 * [Git Model](https://nvie.com/posts/a-successful-git-branching-model/): read this article to understand how working on features affects the repository and its contributors
+* Git Terminology:
+    * Commit: a change to the codebase described by a message
+    * Branch: a collection of files that your project uses to operate (`master` is the default branch with the latest changes)
+    * Pull request (PR): a series of commits to be merged into a branch
 ## Steps to Making Changes
 1. Get the latest code from the master branch: `git pull master`
 2. Create a new branch: `git checkout -b <feature_name> master` (`-b` creates the branch, checkout switches to it)
