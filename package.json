@@ -1,0 +1,15 @@
+{
+  "name": "stevens-web-extension",
+  "version": "0.0.0",
+  "description": "A portable, centralized hub for collecting, analyzing, and presenting data for Stevens students.",
+  "main": "index.js",
+  "repository": "https://github.com/StevensSEC/stevens-web-extension.git",
+  "author": "StevensSEC",
+  "license": "GNU GPL V3.0",
+  "dependencies": {
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
