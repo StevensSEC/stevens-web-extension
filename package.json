@@ -1,15 +1,36 @@
 {
-  "name": "stevens-web-extension",
-  "version": "0.0.0",
-  "description": "A portable, centralized hub for collecting, analyzing, and presenting data for Stevens students.",
-  "main": "index.js",
-  "repository": "https://github.com/StevensSEC/stevens-web-extension.git",
-  "author": "StevensSEC",
-  "license": "GNU GPL V3.0",
-  "dependencies": {
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  }
+    "name": "stevens-web-extension",
+    "version": "0.0.1",
+    "description": "A portable, centralized hub for collecting, analyzing, and presenting data for Stevens students.",
+    "main": "index.js",
+    "repository": "https://github.com/StevensSEC/stevens-web-extension.git",
+    "author": "StevensSEC",
+    "license": "GNU GPL V3.0",
+    "scripts": {
+        "build": "echo Build not implemented.",
+        "dev": "webpack --mode=development --watch"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@types/node": "^13.7.0",
+        "editorconfig": "^0.15.3",
+        "fork-ts-checker-webpack-plugin": "^4.0.3",
+        "husky": "^4.2.1",
+        "lint-staged": "^10.0.7",
+        "path": "^0.12.7",
+        "prettier": "^1.19.1",
+        "ts-loader": "^6.2.1",
+        "ts-node": "^8.6.2",
+        "typescript": "^3.7.5",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts, json}": "prettier --write"
+    }
 }
