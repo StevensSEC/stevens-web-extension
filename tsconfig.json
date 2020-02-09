@@ -1,9 +1,17 @@
 {
-    "extends": "@sindresorhus/tsconfig",
     "compilerOptions": {
-        "target": "es2018",
         "declaration": false,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "lib": ["ES6"],
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "newLine": "lf",
+        "noEmitOnError": true,
+        "noUnusedLocals": true,
+        "pretty": true,
+        "resolveJsonModule": true,
+        "stripInternal": true,
+        "target": "ES6",
     },
     "include": [
         "src",
