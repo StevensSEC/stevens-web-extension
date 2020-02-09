@@ -2,7 +2,7 @@ import path from 'path';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const config = {
-    entry: './src',
+    entry: './src/background',
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',

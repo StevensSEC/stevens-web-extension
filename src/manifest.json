@@ -2,5 +2,19 @@
     "name": "Stevens Web Extension",
     "version": "0.0.0",
     "description": "A portable, centralized hub for collecting, analyzing, and presenting data for Stevens students.",
-    "manifest_version": 2
+    "manifest_version": 2,
+    "permissions": [
+        "activeTab",
+        "storage",
+        "contextMenu"
+    ],
+    "browser_action": {
+        "default_icon": "assets/temp_icon.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    }
 }

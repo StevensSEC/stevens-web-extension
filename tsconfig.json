@@ -10,8 +10,13 @@
         "noUnusedLocals": true,
         "pretty": true,
         "resolveJsonModule": true,
+        "skipLibCheck": true,
         "stripInternal": true,
         "target": "ES6",
+        "types": [
+            "chrome",
+            "node"
+        ]
     },
     "include": [
         "src",
