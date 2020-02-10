@@ -25,13 +25,7 @@
         "brace-style": ["error", "1tbs"],
         "camelcase": "error",
         "comma-dangle": ["error", "always"],
-        "comma-spacing": [
-            "error",
-            {
-                "before": false,
-                "after": true
-            }
-        ],
+        "comma-spacing": ["error", {"before": false, "after": true}],
         "curly": ["error", "all"],
         "comma-style": ["error", "last"],
         "eol-last": ["error", "always"],
@@ -39,18 +33,12 @@
         "no-else-return": "error",
         "no-multi-spaces": "error",
         "no-trailing-spaces": "error",
+        "no-unused-vars": ["error", {"args": "none"}],
         "func-call-spacing": ["error", "never"],
         "indent": ["error", 4],
         "linebreak-style": ["error", "unix"],
-        "object-curly-spacing": ["error", "never"],
         "semi": ["error", "always"],
-        "semi-spacing": [
-            "error",
-            {
-                "before": false,
-                "after": true
-            }
-        ],
+        "semi-spacing": ["error", {"before": false, "after": true}],
         "space-before-function-paren": ["error", "always"],
         "space-in-parens": ["error", "never"],
         "space-infix-ops": "error",

@@ -12,17 +12,17 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
 
 **Downloads**
 
--   [Visual Studio Code (VSCode)](https://code.visualstudio.com/download): code editor, supports everything needed for this project including Git integration, TypeScript support, and more
--   [\*Git](https://git-scm.com/downloads): CLI (command line interface) that allows you to work with other developers through repositories
--   [\*Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable): package installer for JavaScript modules (parallelized npm)
-
-_\* = required_
+-   [Visual Studio Code (VSCode)](https://code.visualstudio.com/download): code editor, supports everything needed for this project including Git integration, TypeScript support, and more (if you already have a code editor, consider trying VSCode for this project)
+-   [Git](https://git-scm.com/downloads): CLI (command line interface) that allows you to work with other developers through repositories
+-   [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable): package installer for JavaScript modules (parallelized npm)
 
 **Chrome Extensions**
 
 -   [Getting Started](https://developer.chrome.com/extensions/getstarted)
--   [Chrome APIs](https://developer.chrome.com/extensions/api_index)
+-   [Chrome Extension API](https://developer.chrome.com/extensions/api_index)
+-   [Chrome Developer Guide](https://developer.chrome.com/extensions/devguide)
 -   [Example: Refined Github](https://github.com/sindresorhus/refined-github)
+-   [Example: Extension Boiletplate](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate)
 
 **Project Languages & Configuration**
 
