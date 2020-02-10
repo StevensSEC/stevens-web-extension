@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // These scripts run in the background continuously
 import Settings from './shared/Settings';
 import './features/TemporaryBookmarks';
@@ -8,3 +9,7 @@ import {name, version} from '../package.json';
 console.log(`${name} v${version} started!`);
 
 chrome.runtime.onInstalled.addListener(Settings.resetSettings);
+=======
+import './features/WorkAssistant';
+import './assets/temp_icon.png';
+>>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks

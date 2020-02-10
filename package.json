@@ -10,13 +10,10 @@
         "build": "webpack --mode=production",
         "dev": "webpack --mode=development --watch"
     },
-    "dependencies": {
-        "moment": "^2.24.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@types/chrome": "^0.0.93",
         "@types/copy-webpack-plugin": "^5.0.0",
-        "@types/jest": "^25.1.2",
         "@types/node": "^13.7.0",
         "@types/webpack-env": "^1.15.1",
         "@typescript-eslint/eslint-plugin": "^2.19.0",

@@ -4,10 +4,6 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 
 const config = {
-    devtool: 'source-map',
-    mode: process.env.NODE_ENV || 'development',
-<<<<<<< HEAD
-=======
     devtool:
         process.env.NODE_ENV === 'production'
             ? 'inline-source-map'
@@ -15,7 +11,6 @@ const config = {
     performance: {
         hints: false,
     },
->>>>>>> v0.1.1: Update temporary bookmarks to use internal timer for display/removal, modify configuration
     entry: {
         // popup: path.join(__dirname, 'src/popup.js'),
         // options: path.join(__dirname, 'src/options.js'),
