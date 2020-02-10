@@ -10,7 +10,9 @@
         "build": "webpack --mode=production",
         "dev": "webpack --mode=development --watch"
     },
-    "dependencies": {},
+    "dependencies": {
+        "moment": "^2.24.0"
+    },
     "devDependencies": {
         "@types/chrome": "^0.0.93",
         "@types/copy-webpack-plugin": "^5.0.0",
