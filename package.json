@@ -1,6 +1,6 @@
 {
     "name": "stevens-web-extension",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A portable, centralized hub for collecting, analyzing, and presenting data for Stevens students.",
     "main": "index.js",
     "repository": "https://github.com/StevensSEC/stevens-web-extension.git",
@@ -10,12 +10,15 @@
         "build": "webpack --mode=production",
         "dev": "webpack --mode=development --watch"
     },
-    "dependencies": {},
+    "dependencies": {
+        "moment": "^2.24.0"
+    },
     "devDependencies": {
         "@types/jest": "^25.1.2",
         "@types/chrome": "^0.0.93",
         "@types/copy-webpack-plugin": "^5.0.0",
         "@types/node": "^13.7.0",
+        "@types/webpack-env": "^1.15.1",
         "@typescript-eslint/eslint-plugin": "^2.19.0",
         "@typescript-eslint/parser": "^2.19.0",
         "clean-webpack-plugin": "^3.0.0",
@@ -31,6 +34,8 @@
         "path": "^0.12.7",
         "prettier": "^1.19.1",
         "ts-jest": "^25.2.0",
+        "pug": "^2.0.4",
+        "pug-html-loader": "^1.1.5",
         "ts-loader": "^6.2.1",
         "ts-node": "^8.6.2",
         "typescript": "^3.7.5",
