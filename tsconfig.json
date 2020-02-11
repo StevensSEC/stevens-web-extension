@@ -13,13 +13,7 @@
         "skipLibCheck": true,
         "stripInternal": true,
         "target": "ES6",
-        "types": [
-            "chrome",
-            "node"
-        ]
+        "types": ["chrome", "jest", "node"]
     },
-    "include": [
-        "src",
-        "webpack.config.ts"
-    ]
+    "include": ["src", "webpack.config.ts"]
 }
