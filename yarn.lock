@@ -340,6 +340,9 @@
     any-observable "^0.3.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@sinonjs/commons@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.7.0.tgz#f90ffc52a2e519f018b13b6c4da03cbff36ebed6"
@@ -347,8 +350,11 @@
   dependencies:
     type-detect "4.0.8"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
@@ -364,6 +370,9 @@
   integrity sha512-dBtBbrc+qTHy1WdfHYjBwRln4+LWqASWakLHsWHR2NWHIFkv4W3O070IGoGLEBrJBvct3r0L1BUPuvURi7kYUQ==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/babel__core@^7.1.0":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.3.tgz#e441ea7df63cd080dfcd02ab199e6d16a735fc30"
@@ -397,8 +406,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/babylon@^6.16.2":
   version "6.16.5"
   resolved "https://registry.yarnpkg.com/@types/babylon/-/babylon-6.16.5.tgz#1c5641db69eb8cdf378edd25b4be7754beeb48b4"
@@ -468,6 +480,9 @@
     "@types/node" "*"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -496,8 +511,11 @@
     jest-diff "^25.1.0"
     pretty-format "^25.1.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/json-schema@^7.0.3":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
@@ -524,13 +542,19 @@
   integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/tapable@*":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.5.tgz#9adbc12950582aa65ead76bffdf39fe0c27a3c02"
@@ -579,6 +603,9 @@
     source-map "^0.6.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@types/yargs-parser@*":
   version "15.0.0"
   resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-15.0.0.tgz#cb3f9f741869e20cce330ffbeb9271590483882d"
@@ -591,8 +618,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 "@typescript-eslint/eslint-plugin@^2.19.0":
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.19.0.tgz#bf743448a4633e4b52bee0c40148ba072ab3adbd"
@@ -793,13 +823,19 @@
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 abab@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.3.tgz#623e2075e02eb2d3f2475e49f99c91846467907a"
   integrity sha512-tsFzPpcttalNjFBCFMqsKYQcWxxen1pgJR56by//QwvJc4/OUS3kPOOttx2tSIfjsylB0pYu7f5D3K1RCxUnUg==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 acorn-globals@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/acorn-globals/-/acorn-globals-3.1.0.tgz#fd8270f71fbb4996b004fa880ee5d46573a731bf"
@@ -808,6 +844,9 @@ acorn-globals@^3.0.0:
     acorn "^4.0.4"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 acorn-globals@^4.3.2:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/acorn-globals/-/acorn-globals-4.3.4.tgz#9fa1926addc11c97308c4e66d7add0d40c3272e7"
@@ -816,21 +855,30 @@ acorn-globals@^4.3.2:
     acorn "^6.0.1"
     acorn-walk "^6.0.1"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 acorn-jsx@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.1.0.tgz#294adb71b57398b0680015f0a38c563ee1db5384"
   integrity sha512-tMUqwBWfLFbJbizRmEcWSLw6HnFzfdJs2sOJEOwwtVPMoH/0Ay+E703oZz78VSXZiiDcZrQ5XKjPIUQixhmgVw==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 acorn-walk@^6.0.1:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-6.2.0.tgz#123cb8f3b84c2171f1f7fb252615b1c78a6b1a8c"
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 acorn@^3.1.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
@@ -842,10 +890,14 @@ acorn@^4.0.4, acorn@~4.0.2:
   integrity sha1-EFSVrlNh1pe9GVyCUZLhrX8lN4c=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 acorn@^6.0.1, acorn@^6.2.1:
 =======
 acorn@^6.2.1:
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+acorn@^6.0.1, acorn@^6.2.1:
+>>>>>>> Fix merge conflicts, disable test
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.0.tgz#b659d2ffbafa24baf5db1cdbb2c94a983ecd2784"
   integrity sha512-gac8OEcQ2Li1dxIEWGZzsp2BitJxwkwcOm0zHAJLcPJaVvm58FRnk6RkuLRpU1EujipU2ZFODv2P9DLMfnV8mw==
@@ -1004,13 +1056,19 @@ arr-union@^3.1.0:
   integrity sha1-45sJrqne+Gao8gbiiK9jkZuuOcQ=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 array-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/array-equal/-/array-equal-1.0.0.tgz#8c2a5ef2472fd9ea742b04c77a75093ba2757c93"
   integrity sha1-jCpe8kcv2ep0KwTHenUJO6J1fJM=
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 array-union@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-1.0.2.tgz#9a34410e4f4e3da23dea375be5be70f24778ec39"
@@ -1107,6 +1165,9 @@ babel-code-frame@^6.22.0:
     js-tokens "^3.0.2"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 babel-jest@^25.1.0:
   version "25.1.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-25.1.0.tgz#206093ac380a4b78c4404a05b3277391278f80fb"
@@ -1147,8 +1208,11 @@ babel-preset-jest@^25.1.0:
     "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
     babel-plugin-jest-hoist "^25.1.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
@@ -1196,6 +1260,9 @@ base@^0.11.1:
     pascalcase "^0.1.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
@@ -1203,8 +1270,11 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
@@ -1429,20 +1499,29 @@ camelcase@^1.0.2:
   integrity sha1-m7UwTS4LVmmLLHWLCKPqqdqlijk=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 camelcase@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
   integrity sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=
 
 camelcase@^5.0.0, camelcase@^5.3.1:
+<<<<<<< HEAD
 =======
 camelcase@^5.0.0:
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 capture-exit@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/capture-exit/-/capture-exit-2.0.0.tgz#fb953bfaebeb781f62898239dabb426d08a509a4"
@@ -1455,8 +1534,11 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 center-align@^0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/center-align/-/center-align-0.1.3.tgz#aa0d32629b6ee972200411cbd4461c907bc2b7ad"
@@ -1803,12 +1885,16 @@ core-js@^2.4.0:
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 core-util-is@1.0.2, core-util-is@~1.0.0:
 =======
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
 core-util-is@~1.0.0:
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+core-util-is@1.0.2, core-util-is@~1.0.0:
+>>>>>>> Fix merge conflicts, disable test
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
@@ -2012,13 +2098,19 @@ del@^4.1.1:
     rimraf "^2.6.3"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 des.js@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/des.js/-/des.js-1.0.1.tgz#5382142e1bdc53f85d86d53e5f4aa7deb91e0843"
@@ -2696,13 +2788,19 @@ fsevents@^1.2.7:
     nan "^2.12.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 fsevents@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.2.tgz#4c0a1fb34bc68e543b4b82a9ec392bfbda840805"
   integrity sha512-R4wDiBwZ0KzpgOWetKDug1FZcYhqYnUYKtfZYt4mD5SBz76q0KR4Q9o7GIPamsVPGmW3EYPPJ0dOOjvx32ldZA==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -2770,10 +2868,14 @@ glob-parent@^5.0.0:
     is-glob "^4.0.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
 =======
 glob@^7.0.3, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
+>>>>>>> Fix merge conflicts, disable test
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -2857,10 +2959,14 @@ globby@^7.1.1:
     slash "^1.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.2.3:
 =======
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.2.3:
+>>>>>>> Fix merge conflicts, disable test
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
@@ -3347,10 +3453,14 @@ is-promise@^2.0.0, is-promise@^2.1.0:
   integrity sha1-eaKp7OfwlugPNtKy87wWwf9L8/o=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 is-regex@^1.0.3, is-regex@^1.0.5:
 =======
 is-regex@^1.0.3:
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+is-regex@^1.0.3, is-regex@^1.0.5:
+>>>>>>> Fix merge conflicts, disable test
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/is-regex/-/is-regex-1.0.5.tgz#39d589a358bf18967f726967120b8fc1aed74eae"
   integrity sha512-vlKW17SNq44owv5AQR3Cq0bQPEb8+kF3UKZ2fiZNOWtztYE5i0CzCZxFDwO58qAOWtxdBRVO/V5Qin1wjCqFYQ==
@@ -3422,6 +3532,9 @@ isobject@^3.0.0, isobject@^3.0.1:
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
@@ -3819,8 +3932,11 @@ jest@^25.1.0:
     import-local "^3.0.2"
     jest-cli "^25.1.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 js-stringify@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/js-stringify/-/js-stringify-1.0.2.tgz#1736fddfd9724f28a3682adc6230ae7e4e9679db"
@@ -3845,6 +3961,9 @@ js-yaml@^3.13.1:
     esprima "^4.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -3887,8 +4006,11 @@ jsesc@^2.5.1:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-2.5.2.tgz#80564d2e483dacf6e8ef209650a67df3f0c283a4"
   integrity sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 json-loader@^0.5.7:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/json-loader/-/json-loader-0.5.7.tgz#dca14a70235ff82f0ac9a3abeb60d337a365185d"
@@ -3915,6 +4037,9 @@ json-stable-stringify-without-jsonify@^1.0.1:
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
@@ -3927,8 +4052,11 @@ json5@2.x, json5@^2.1.0:
   dependencies:
     minimist "^1.2.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 json5@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
@@ -3942,6 +4070,9 @@ json5@^1.0.1:
     minimist "^1.2.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -3952,8 +4083,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 jstransformer@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/jstransformer/-/jstransformer-1.0.0.tgz#ed8bf0921e2f3f1ed4d5c1a44f68709ed24722c3"
@@ -3987,13 +4121,19 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 kleur@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
@@ -4127,6 +4267,9 @@ locate-path@^5.0.0:
     p-locate "^4.1.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 lodash.memoize@4.x:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -4138,9 +4281,12 @@ lodash.sortby@^4.7.0:
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
 lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
+<<<<<<< HEAD
 =======
 lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -4169,6 +4315,9 @@ log-update@^2.3.0:
     wrap-ansi "^3.0.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 lolex@^5.0.0:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/lolex/-/lolex-5.1.2.tgz#953694d098ce7c07bc5ed6d0e42bc6c0c6d5a367"
@@ -4176,8 +4325,11 @@ lolex@^5.0.0:
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
@@ -4559,6 +4711,9 @@ number-is-nan@^1.0.0:
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 nwsapi@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
@@ -4569,8 +4724,11 @@ oauth-sign@~0.9.0:
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
@@ -4921,6 +5079,9 @@ pinkie@^2.0.0:
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 pirates@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.1.tgz#643a92caf894566f91b2b986d2c66950a8e2fb87"
@@ -4928,8 +5089,11 @@ pirates@^4.0.1:
   dependencies:
     node-modules-regexp "^1.0.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 pkg-dir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-3.0.0.tgz#2749020f239ed990881b1f71210d51eb6523bea3"
@@ -5009,6 +5173,9 @@ promise@^7.0.1:
     asap "~2.0.3"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 prompts@^2.0.1:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.3.0.tgz#a444e968fa4cc7e86689a74050685ac8006c4cc4"
@@ -5017,8 +5184,11 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 prr@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
@@ -5257,6 +5427,9 @@ readdirp@^2.2.1:
     readable-stream "^2.0.2"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 realpath-native@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-1.1.0.tgz#2003294fea23fb0672f2476ebe22fcf498a2d65c"
@@ -5264,8 +5437,11 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
@@ -5404,15 +5580,21 @@ resolve-url@^0.2.1:
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 resolve@1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
   integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
 resolve@1.x, resolve@^1.1.6, resolve@^1.3.2:
+<<<<<<< HEAD
 =======
 resolve@^1.1.6:
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.15.1.tgz#27bdcdeffeaf2d6244b95bb0f9f4b4653451f3e8"
   integrity sha512-84oo6ZTtoTUpjgNEr5SJyzQhzL72gaRodsSfyxC/AXRvwu0Yse9H8eF9IpGo7b8YetZhlI6v7ZQ6bKBFV/6S7w==
@@ -5661,13 +5843,19 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 sisteransi@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.4.tgz#386713f1ef688c7c0304dc4c0632898941cad2e3"
   integrity sha512-/ekMoM4NJ59ivGSfKapeG+FWtrmWvA1p6FBZwXrqojw90vJu8lBmrTxCMuBCydKtkaUe2zt4PlxeTKpjwMbyig==
 
+<<<<<<< HEAD
 =======
 >>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
+=======
+>>>>>>> Fix merge conflicts, disable test
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -5752,10 +5940,14 @@ source-map-url@^0.4.0:
   integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 source-map@^0.5.0, source-map@^0.5.6, source-map@~0.5.1:
 =======
 source-map@^0.5.6, source-map@~0.5.1:
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+source-map@^0.5.0, source-map@^0.5.6, source-map@~0.5.1:
+>>>>>>> Fix merge conflicts, disable test
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
@@ -6142,13 +6334,19 @@ to-fast-properties@^1.0.3:
   integrity sha1-uDVx+k2MJbguIxsG46MFXeTKGkc=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 to-object-path@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/to-object-path/-/to-object-path-0.3.0.tgz#297588b7b0e7e0ac08e04e672f85c1f4999e17af"
@@ -6187,6 +6385,9 @@ token-stream@0.0.1:
   integrity sha1-zu78cXp2xDFvEm0LnbqlXX598Bo=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 tough-cookie@^2.3.3, tough-cookie@~2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.5.0.tgz#cd9fb2a0aa1d5a12b473bd9fb96fa3dcff65ade2"
@@ -6227,8 +6428,11 @@ ts-jest@^25.2.0:
     semver "^5.5"
     yargs-parser "10.x"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 ts-loader@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-6.2.1.tgz#67939d5772e8a8c6bdaf6277ca023a4812da02ef"
@@ -6471,6 +6675,9 @@ void-elements@^2.0.1:
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 w3c-hr-time@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/w3c-hr-time/-/w3c-hr-time-1.0.1.tgz#82ac2bff63d950ea9e3189a58a65625fedf19045"
@@ -6494,8 +6701,11 @@ walker@^1.0.7, walker@~1.0.5:
   dependencies:
     makeerror "1.0.x"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 watchpack@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.6.0.tgz#4bc12c2ebe8aa277a71f1d3f14d685c7b446cd00"
@@ -6785,6 +6995,9 @@ yargs@13.2.4:
     yargs-parser "^13.1.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fix merge conflicts, disable test
 yargs@^15.0.0:
   version "15.1.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.1.0.tgz#e111381f5830e863a89550bd4b136bb6a5f37219"
@@ -6802,8 +7015,11 @@ yargs@^15.0.0:
     y18n "^4.0.0"
     yargs-parser "^16.1.0"
 
+<<<<<<< HEAD
 =======
 >>>>>>> Update extension configuration to support background/content scripts, webpack setup for Pug files
+=======
+>>>>>>> Fix merge conflicts, disable test
 yargs@~3.10.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-3.10.0.tgz#f7ee7bd857dd7c1d2d38c0e74efbd681d1431fd1"

@@ -37,10 +37,7 @@
         "func-call-spacing": ["error", "never"],
         "indent": ["error", 4],
         "linebreak-style": ["error", "unix"],
-<<<<<<< HEAD
         "no-prototype-builtins": "off",
-=======
->>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
         "semi": ["error", "always"],
         "semi-spacing": ["error", {"before": false, "after": true}],
         "space-before-function-paren": ["error", "always"],
