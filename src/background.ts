@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import './features/WorkAssistant';
-import './assets/temp_icon.png';
-=======
 // These scripts run in the background continuously
 import Settings from './shared/Settings';
 import './features/TemporaryBookmarks';
@@ -12,4 +8,3 @@ import {name, version} from '../package.json';
 console.log(`${name} v${version} started!`);
 
 chrome.runtime.onInstalled.addListener(Settings.resetSettings);
->>>>>>> v0.1.1: Update temporary bookmarks to use internal timer for display/removal, modify configuration
