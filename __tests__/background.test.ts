@@ -1,4 +1,4 @@
-import '../src/background.ts';
+// import '../src/background.ts';
 
 describe('Chrome extension startup', () => {
     it('should start correctly', () => {
