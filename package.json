@@ -1,6 +1,6 @@
 {
     "name": "stevens-web-extension",
-    "version": "0.0.3",
+    "version": "0.1.1",
     "description": "A portable, centralized hub for collecting, analyzing, and presenting data for Stevens students.",
     "main": "index.js",
     "repository": "https://github.com/StevensSEC/stevens-web-extension.git",
