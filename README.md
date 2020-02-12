@@ -22,14 +22,7 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
 -   [Chrome Extension API](https://developer.chrome.com/extensions/api_index)
 -   [Chrome Developer Guide](https://developer.chrome.com/extensions/devguide)
 -   [Example: Refined Github](https://github.com/sindresorhus/refined-github)
-<<<<<<< HEAD
-<<<<<<< HEAD
 -   [Example: uBlock Origin](https://github.com/gorhill/uBlock/blob/master/platform/chromium)
-=======
->>>>>>> Change webpack asset bundling, create sample extension functionality: temporary bookmarks
-=======
--   [Example: uBlock Origin](https://github.com/gorhill/uBlock/blob/master/platform/chromium)
->>>>>>> Fix merge conflicts, disable test
 -   [Example: Extension Boiletplate](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate)
 
 **Project Languages & Configuration**
