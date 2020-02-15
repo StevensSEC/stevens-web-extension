@@ -1,0 +1,12 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Stevens Web Extension Options
+        script(src='options.js')
+    body
+        p This is the options page. Here, users will be able to select which features they want activated.
+        select#active-features(type='checkbox')
+            option(value='canvas-integration') Canvas Integration
+            option(value='meal-swipes') Show Meal Swipes
+            option(value='room-availability') Room Availability

@@ -2,7 +2,7 @@
     "compilerOptions": {
         "declaration": false,
         "esModuleInterop": true,
-        "lib": ["ES6"],
+        "lib": ["ES6", "DOM"],
         "module": "CommonJS",
         "moduleResolution": "node",
         "newLine": "lf",
