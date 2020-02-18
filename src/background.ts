@@ -1,7 +1,8 @@
 // These scripts run in the background continuously
-import Settings from './shared/Settings';
+import Settings from './shared/settings';
 import './features/TemporaryBookmarks';
 import './assets/temp_icon.png';
+import './popup.pug';
 
 import {name, version} from '../package.json';
 // To see the console output, click the "background page" link on `chrome://extensions`

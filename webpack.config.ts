@@ -15,6 +15,7 @@ const config = {
     entry: {
         content: path.join(__dirname, 'src/content.ts'),
         background: path.join(__dirname, 'src/background.ts'),
+        options: path.join(__dirname, 'src/options.ts'),
     },
     output: {
         path: path.join(__dirname, 'dist'),
