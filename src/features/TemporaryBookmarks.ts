@@ -3,8 +3,7 @@
  * - Automatically gets deleted if time expires
  */
 import * as moment from 'moment';
-// Required template files (Pug renders into HTML)
-import './AddTempBookmark.pug';
+const AddTempBookmark = require('./AddTempBookmark.pug');
 
 // Retrieves the first bookmark folder matching the query
 function getBookmarkFolder(title, callback: Function) {
@@ -41,6 +40,21 @@ function createTemporaryBookmark(
     bookmark: chrome.bookmarks.BookmarkCreateArg,
     time: moment.Duration
 ) {
+    chrome.tabs.executeScript({
+        /* To Do
+        This injection adds an HTML element to the current webpage.
+        - Needs to be positioned (absolute) at mouse position when loaded
+        - Consistent CSS style (rather than inheriting page styles)
+        - Send a message back to the extension with the resulting values
+        - Delete the element after submitting
+        - Extra: move to content script and add to manifest */
+        code: `document.body.insertAdjacentHTML('beforeend', \`${AddTempBookmark()}\`);
+        document.addEventListener('click', x => {
+            if (x.target && x.target.id == 'folder-submit') {
+                console.log(x, chrome, "123!");
+            }
+        })`,
+    });
     // Callback hell is real
     getTempBookmarkFolder(tempBookmarkFolder => {
         chrome.bookmarks.create(
