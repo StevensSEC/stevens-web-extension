@@ -1,0 +1,14 @@
+extends base.pug
+
+block append head
+    title Stevens Web Extension Options
+    script(src='options.js')
+block append content
+    p This is the options page. Here, users will be able to select which features they want activated.
+    #active-features
+        input#canvas-integration(type='checkbox' name='features' checked)
+        label(for='canvas-integration') Canvas Integration
+        input#meal-swipes(type='checkbox' name='features' checked)
+        label(for='meal-swipes') Show Meal Swipes
+        input#room-availability(type='checkbox' name='features' checked)
+        label(for='room-availability') Room Availability
