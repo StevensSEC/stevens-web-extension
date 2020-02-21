@@ -39,6 +39,10 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
     -   Branch: a collection of files that your project uses to operate (`master` is the default branch with the latest changes)
     -   Pull request (PR): a series of commits to be merged into a branch
 
+**API / Miscellaneous**
+
+-   [Canvas API](https://canvas.instructure.com/doc/api/)
+
 ## Project Setup
 
 -   Install [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), recommended extensions for VSCode
