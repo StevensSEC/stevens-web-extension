@@ -76,6 +76,10 @@ const config = {
             template: './src/popup.pug',
             filename: 'popup.html',
         }),
+        new HtmlWebpackPlugin({
+            template: './src/options.pug',
+            filename: 'options.html',
+        }),
     ],
     resolve: {
         extensions: ['.ts', '.js', '.png'],
