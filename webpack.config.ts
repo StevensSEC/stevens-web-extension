@@ -1,6 +1,7 @@
 import path from 'path';
 import CopyPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 
 const config = {
@@ -13,7 +14,7 @@ const config = {
         hints: false,
     },
     entry: {
-        content: path.join(__dirname, 'src/content.ts'),
+        // content: path.join(__dirname, 'src/content.ts'),
         background: path.join(__dirname, 'src/background.ts'),
         options: path.join(__dirname, 'src/options.ts'),
     },
@@ -48,10 +49,7 @@ const config = {
             {
                 test: /\.pug$/,
                 // Converts .pug files to .html in the distribution
-                loaders: [
-                    'file-loader?name=[name].html',
-                    'pug-html-loader?pretty&exports=false',
-                ],
+                loader: 'pug-loader',
                 exclude: /node_modules/,
             },
         ],
@@ -74,6 +72,10 @@ const config = {
                 },
             },
         ]),
+        new HtmlWebpackPlugin({
+            template: './src/popup.pug',
+            filename: 'popup.html',
+        }),
     ],
     resolve: {
         extensions: ['.ts', '.js', '.png'],
