@@ -50,7 +50,15 @@ A portable, centralized hub for collecting, analyzing, and presenting data for S
 -   If you have not already, clone (make a copy on your computer) the repository: `git clone https://github.com/StevensSEC/stevens-web-extension.git`
 -   Run `yarn install` to download all packages for the project
     -   Use `yarn run` to see available commands for the project
-    -   You will likely be using `yarn dev` to run the project locally
+    -   ~You will likely be using `yarn dev` to run the project locally~ (WIP)
+
+## Running the Extension
+
+1. Build the project using `yarn build`
+2. Navigate to chrome://extensions in your browser
+3. Ensure that `Developer mode` is enabled in the top right corner
+4. Click `Load unpacked` in the top left, and select the generated `/dist` folder
+5. Repeat to test any changes (this will be easier in the future!)
 
 ## Steps to Making Changes
 

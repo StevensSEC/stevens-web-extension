@@ -6,6 +6,9 @@ import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 
 const config = {
     mode: process.env.NODE_ENV || 'development',
+    node: {
+        fs: 'empty',
+    },
     devtool:
         process.env.NODE_ENV === 'production'
             ? 'inline-source-map'
@@ -13,10 +16,11 @@ const config = {
     performance: {
         hints: false,
     },
+    stats: 'minimal',
     entry: {
-        // content: path.join(__dirname, 'src/content.ts'),
         background: path.join(__dirname, 'src/background.ts'),
         options: path.join(__dirname, 'src/options.ts'),
+        popup: path.join(__dirname, 'src/popup.ts'),
     },
     output: {
         path: path.join(__dirname, 'dist'),

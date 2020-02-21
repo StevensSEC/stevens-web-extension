@@ -1,10 +1,12 @@
 extends base.pug
+block append head
+    //- Maximum dimensions for popup is 800x600px
+    style(type='text/css').
+        html {
+            width: 600px;
+        }
+    script(type='text/javascript' src='popup.js')
 block append content
-    p.
-        This is the default popup for the extension. It can be
-        activated by clicking on the extension icon in the
-        top-right of your browser.
-        This page should be dynamic and update based on child
-        templates which query individual features, such as
-        updating meal swipes or checking Canvas.
-    include features/CanvasData.pug
+    h1 Stevens Chrome Extension
+    #canvas-integration
+        include features/canvas/CanvasDisplay.pug

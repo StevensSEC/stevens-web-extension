@@ -1,10 +1,11 @@
 // These scripts run in the background continuously
-import Settings from './shared/settings';
-import './features/TemporaryBookmarks';
 import './assets/temp_icon.png';
-import './popup.pug';
 
-// const popup = require('./popup.pug');
+import './features/canvas/CanvasIntegration';
+import './features/tempBookmarks/TemporaryBookmarks';
+
+import Settings from './shared/settings';
+import './shared/hot_reload';
 
 import {name, version} from '../package.json';
 // To see the console output, click the "background page" link on `chrome://extensions`

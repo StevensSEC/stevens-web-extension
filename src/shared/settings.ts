@@ -1,14 +1,18 @@
-// Initialize default configuration
 function resetSettings() {
-    chrome.storage.local.clear();
-    chrome.storage.local.set({
-        // Name of temporary bookmark folder
-        tempBookmarkFolder: 'Temporary',
-        // Reset temporary bookmark timers
-        tempBookmarkTimes: {},
+    // Initialize default configuration
+    chrome.storage.local.get(items => {
+        let settings = {
+            tempBookmarkFolder: 'Temporary',
+            tempBookmarkItems: {},
+            tokens: {
+                canvas: '',
+            },
+        };
+        Object.assign(settings, items);
+        chrome.storage.local.set(settings, () => {
+            console.log('Settings reset!');
+        });
     });
 }
 
-export default {
-    resetSettings: resetSettings,
-};
+export default {resetSettings};
