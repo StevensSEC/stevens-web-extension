@@ -2,8 +2,10 @@ import ROOMS from './Rooms';
 
 const YEAR = new Date().getFullYear();
 const SEMESTER = 'S';
+const DAY = 2; //Tuesday
 /*
 TODO: Determine the semester programatically using the date
+TODO: Determine the day of the week programtically (using Tuesday for testing)
 */
 
 function getRoomSchedHTML(year, semester) {
@@ -68,7 +70,42 @@ async function getTablesPerRoom(year, semester) {
     return roomTableDict;
 }
 
-//a console.log so the linter doesn't yell at me
-getTablesPerRoom(YEAR, SEMESTER).then(object => {
-    console.log(object);
-});
+function getTodaysRow(day, table) {
+    /*
+    Input is an integer representing the day of the week, and a
+    HTML table object that corresponds to a room.
+
+    Output is a table row object that corresponds to the selected day.
+    */
+
+    if (day === 0 || day === 6) {
+        console.log('Today is the weekend, there are no classes scheduled.');
+        return null;
+    }
+    const dayOfWeek = {
+        1: 'M',
+        2: 'T',
+        3: 'W',
+        4: 'R',
+        5: 'F',
+    };
+
+    let tableRow;
+    //filter through all rows of the table, finding the one that
+    //has a td tag with today's day and returning that one
+    table.querySelectorAll('tr').forEach(row => {
+        row.querySelectorAll('td').forEach(td => {
+            if (td.innerHTML === dayOfWeek[day]) {
+                tableRow = row;
+            }
+        });
+    });
+    return tableRow;
+}
+
+//testing
+getTablesPerRoom(YEAR, SEMESTER)
+    .then(tables => {
+        console.log(getTodaysRow(DAY, tables['A115']));
+    })
+    .catch(err => console.error(err));
