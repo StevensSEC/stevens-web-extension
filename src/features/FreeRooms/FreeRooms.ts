@@ -1,14 +1,11 @@
 import ROOMS from './Rooms';
 
-const YEAR = new Date().getFullYear();
-const SEMESTER = 'S';
-const DAY = 2; //Tuesday
 /*
 TODO: Determine the semester programatically using the date
 TODO: Determine the day of the week programtically (using Tuesday for testing)
 */
 
-function getRoomSchedHTML(year, semester) {
+export async function getRoomSchedHTML(year, semester) {
     /*
     Input is an integer representing the year that you'd like to query
     as well as a string representing the semester for which you'd like
@@ -25,27 +22,42 @@ function getRoomSchedHTML(year, semester) {
     that is received when making a GET request to the
     Stevens room schedule website.
     */
-    let request = new XMLHttpRequest();
-    request.responseType = 'text';
-    return new Promise((resolve, reject) => {
-        request.onload = () => {
-            if (request.status !== 200) {
-                reject(
-                    `Failed to retrieve HTML from roomsched website with error code ${request.status}`
-                );
-                return;
-            }
-            resolve(request.response);
-        };
-        request.open(
-            'GET',
-            `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`
-        );
-        request.send();
-    });
+    // return new Promise((resolve, reject) => {
+    //     const request = new XMLHttpRequest();
+    //     request.onload = () => {
+    //         if (request.status !== 200) {
+    //             reject(
+    //                 new Error(
+    //                     `Failed to retrieve HTML from roomsched website with error code ${request.status}`
+    //                 )
+    //             );
+    //             return [request.status, null];
+    //         }
+    //         resolve([request.status, request.response]);
+    //     };
+    //     request.open(
+    //         'GET',
+    //         `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`
+    //     );
+    //     request.setRequestHeader('Content-Type', 'text/html');
+    //     request.send();
+    // });
+
+    const response = await fetch(
+        `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'text/html',
+            },
+        }
+    );
+    return await response.text();
 }
 
-async function getTablesPerRoom(year, semester) {
+getRoomSchedHTML(2020, 'S').then(response => console.log(response));
+
+export async function getTablesPerRoom(year, semester) {
     /*
     Input is an integer representing the year that you'd like to query
     as well as a string representing the semester for which you'd like
@@ -70,7 +82,7 @@ async function getTablesPerRoom(year, semester) {
     return roomTableDict;
 }
 
-function getTodaysRow(day, table) {
+export function getDaysRow(day, table) {
     /*
     Input is an integer representing the day of the week, and a
     HTML table object that corresponds to a room.
@@ -103,7 +115,7 @@ function getTodaysRow(day, table) {
     return tableRow;
 }
 
-function hasNoScheduledEvent(row, time) {
+export function hasNoScheduledEvent(row, time) {
     /*
     Input is an HTML row representing a room's availability
     for a given day, and a time given by a Date().
@@ -146,7 +158,7 @@ function hasNoScheduledEvent(row, time) {
     return flag;
 }
 
-function convertTimetoColspan(time) {
+export function convertTimetoColspan(time) {
     /*
     Input is a time given by a Date() object between
     8 AM and 9:45 PM.
@@ -160,12 +172,56 @@ function convertTimetoColspan(time) {
     let minutes = time.getMinutes();
     return (hours - 8) * 4 + Math.floor(minutes / 15);
 }
-//testing
 
-getTablesPerRoom(YEAR, SEMESTER).then(tables => {
-    let row = getTodaysRow(DAY, tables['ABS301']);
-    console.log('Here it comes!');
-    console.log(
-        hasNoScheduledEvent(row, new Date('February 23, 2020 13:24:00'))
-    );
+export function getSemesterFromDate(date) {
+    /*
+    Input is a Date() object.
+
+    Output is the current semester that corresponds to that date.
+    */
+
+    //TODO: more accurately determine the current semester
+    //without relying only on the month
+
+    let month = date.getMonth();
+    if (month === 0) {
+        return 'W';
+    } else if (month >= 1 && month <= 4) {
+        return 'S';
+    } else if (month === 5) {
+        return 'A';
+    } else if (month >= 6 && month <= 7) {
+        return 'B';
+    }
+    return 'F';
+}
+
+export async function getAvailableRooms(date) {
+    /*
+    Input is a Date() object.
+
+    Output is a Promise that on success
+    returns an array of rooms with no classes scheduled according
+    to the room scheduling website.
+    */
+
+    let availableRooms = [];
+
+    let year = date.getFullYear();
+    let semester = getSemesterFromDate(date);
+    let day = date.getDay();
+
+    let tables = await getTablesPerRoom(year, semester);
+    for (let room in tables) {
+        let row = getDaysRow(day, tables[room]);
+        if (hasNoScheduledEvent(row, date)) {
+            availableRooms.push(room);
+        }
+    }
+    return availableRooms;
+}
+
+//testing
+getAvailableRooms(new Date('February 20, 2020 8:00')).then(rooms => {
+    console.log(rooms);
 });
