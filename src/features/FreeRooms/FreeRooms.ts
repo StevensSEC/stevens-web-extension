@@ -79,7 +79,7 @@ function getTodaysRow(day, table) {
     */
 
     if (day === 0 || day === 6) {
-        console.log('Today is the weekend, there are no classes scheduled.');
+        //It's the weekend, there are no classes scheduled
         return null;
     }
     const dayOfWeek = {
@@ -103,9 +103,69 @@ function getTodaysRow(day, table) {
     return tableRow;
 }
 
+function hasNoScheduledEvent(row, time) {
+    /*
+    Input is an HTML row representing a room's availability
+    for a given day, and a time given by a Date().
+
+    Output is a boolean indicating whether the room has an event
+    during the time passed in.
+    */
+
+    if (!row) {
+        //It's the weekend
+        return true;
+    }
+
+    //Each row is subdivided into 56 different segments
+    //with the first segment representing the time 8:00 AM
+    //and the last segment representing 9:45 PM.
+
+    //There are a additional 3 segments that are on the table but unaccounted for.
+
+    if (time.getHours() < 8 || time.getHours() > 22) {
+        //These times are outside building operation hours
+        return false;
+    }
+    let colspanTime = convertTimetoColspan(time);
+    let totalColspan = 0;
+    let flag = false;
+    let dataElements = row.querySelectorAll('td');
+    for (let td of dataElements) {
+        if (td.hasAttribute('colspan')) {
+            totalColspan += parseInt(td.getAttribute('colspan'));
+            if (totalColspan >= colspanTime) {
+                if (td.innerHTML === '') {
+                    flag = true;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+    return flag;
+}
+
+function convertTimetoColspan(time) {
+    /*
+    Input is a time given by a Date() object between
+    8 AM and 9:45 PM.
+    Output is the column of the table this time occupies on the
+    room scheduling website.
+    */
+
+    //8 AM -> 0, 9:45 PM -> 55
+
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    return (hours - 8) * 4 + Math.floor(minutes / 15);
+}
 //testing
-getTablesPerRoom(YEAR, SEMESTER)
-    .then(tables => {
-        console.log(getTodaysRow(DAY, tables['A115']));
-    })
-    .catch(err => console.error(err));
+
+getTablesPerRoom(YEAR, SEMESTER).then(tables => {
+    let row = getTodaysRow(DAY, tables['ABS301']);
+    console.log('Here it comes!');
+    console.log(
+        hasNoScheduledEvent(row, new Date('February 23, 2020 13:24:00'))
+    );
+});
