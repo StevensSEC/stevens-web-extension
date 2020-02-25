@@ -22,40 +22,21 @@ export async function getRoomSchedHTML(year, semester) {
     that is received when making a GET request to the
     Stevens room schedule website.
     */
-    // return new Promise((resolve, reject) => {
-    //     const request = new XMLHttpRequest();
-    //     request.onload = () => {
-    //         if (request.status !== 200) {
-    //             reject(
-    //                 new Error(
-    //                     `Failed to retrieve HTML from roomsched website with error code ${request.status}`
-    //                 )
-    //             );
-    //             return [request.status, null];
-    //         }
-    //         resolve([request.status, request.response]);
-    //     };
-    //     request.open(
-    //         'GET',
-    //         `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`
-    //     );
-    //     request.setRequestHeader('Content-Type', 'text/html');
-    //     request.send();
-    // });
-
-    const response = await fetch(
-        `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`,
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'text/html',
-            },
-        }
-    );
-    return await response.text();
+    try {
+        const response = await fetch(
+            `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'text/html',
+                },
+            }
+        );
+        return await response.text();
+    } catch (e) {
+        console.error(e);
+    }
 }
-
-getRoomSchedHTML(2020, 'S').then(response => console.log(response));
 
 export async function getTablesPerRoom(year, semester) {
     /*
@@ -221,7 +202,121 @@ export async function getAvailableRooms(date) {
     return availableRooms;
 }
 
-//testing
-getAvailableRooms(new Date('February 20, 2020 8:00')).then(rooms => {
-    console.log(rooms);
-});
+// async function testGetAvailableRooms() {
+//     /*
+//     A test to ensure that getAvailableRooms is functional. Returns
+//     true if working as expected.
+//     */
+
+//     const availableRooms = await getAvailableRooms(
+//         new Date('February 24, 2020 08:00:00')
+//     );
+//     console.log(
+//         'getAvailableRooms() thinks that these are the available rooms on Monday at 8 AM:'
+//     );
+//     console.log(availableRooms);
+//     return (
+//         JSON.stringify(availableRooms) ===
+//         JSON.stringify([
+//             'A115',
+//             'A501',
+//             'ABS301',
+//             'B123',
+//             'B126',
+//             'B312',
+//             'B313',
+//             'B314',
+//             'B430',
+//             'B514',
+//             'B517',
+//             'B518',
+//             'B519',
+//             'B620',
+//             'B714',
+//             'B715',
+//             'BC104',
+//             'BC110',
+//             'BC122',
+//             'BC202',
+//             'BC203',
+//             'BC204',
+//             'BC210',
+//             'BC212',
+//             'BC219',
+//             'BC220',
+//             'BC221',
+//             'BC304',
+//             'BC310',
+//             'BC312',
+//             'BC319',
+//             'BC320',
+//             'BC321',
+//             'BC532B',
+//             'BC541',
+//             'BCHFSL',
+//             'C315',
+//             'D231',
+//             'D242',
+//             'E011',
+//             'E111',
+//             'E130',
+//             'E201',
+//             'E229',
+//             'E229A',
+//             'E231',
+//             'E308',
+//             'E329',
+//             'E330',
+//             'GN204',
+//             'GN213',
+//             'GN303',
+//             'GS021',
+//             'GS024',
+//             'GS025',
+//             'GS121',
+//             'GS122',
+//             'GS123',
+//             'GS216',
+//             'K228',
+//             'K350',
+//             'K360',
+//             'K380',
+//             'K390',
+//             'M101',
+//             'M105',
+//             'M201',
+//             'M203',
+//             'M205',
+//             'M324',
+//             'NB101',
+//             'NB102',
+//             'NB105',
+//             'P116',
+//             'P120',
+//             'P216',
+//             'P218',
+//             'P220',
+//             'R201',
+//             'S4TH',
+//             'X003',
+//             'X004',
+//             'X011',
+//             'X104',
+//             'X105',
+//             'X106',
+//             'X118',
+//             'X119',
+//             'X120',
+//             'X203',
+//             'X218A',
+//             'X218B',
+//             'X219',
+//             'X323',
+//             'X414',
+//             'X429',
+//             'X504',
+//             'X510',
+//             'X522',
+//         ])
+//     );
+// }
