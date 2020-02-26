@@ -17,6 +17,7 @@ async function getRoomSchedHTML(year, semester) {
     that is received when making a GET request to the
     Stevens room schedule website.
     */
+
     try {
         const response = await fetch(
             `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`,
