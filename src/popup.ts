@@ -1,4 +1,5 @@
 const UpdateCanvas = require('./features/canvas/CanvasDisplay.pug');
+const UpdateRooms = require('./features/freeRooms/FreeRoomsDisplay.pug');
 import log from './shared/utility';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 '#canvas-integration'
             ).innerHTML = UpdateCanvas({
                 assignments: res.upcomingAssignments,
+            });
+        }
+    });
+    //Room Availability
+    chrome.storage.local.get('availableRooms', res => {
+        if (res.availableRooms) {
+            document.querySelector('#free-rooms').innerHTML = UpdateRooms({
+                availableRooms: res.availableRooms,
             });
         }
     });

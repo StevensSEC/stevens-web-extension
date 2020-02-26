@@ -1,11 +1,6 @@
 import ROOMS from './Rooms';
 
-/*
-TODO: Determine the semester programatically using the date
-TODO: Determine the day of the week programtically (using Tuesday for testing)
-*/
-
-export async function getRoomSchedHTML(year, semester) {
+async function getRoomSchedHTML(year, semester) {
     /*
     Input is an integer representing the year that you'd like to query
     as well as a string representing the semester for which you'd like
@@ -38,7 +33,7 @@ export async function getRoomSchedHTML(year, semester) {
     }
 }
 
-export async function getTablesPerRoom(year, semester) {
+async function getTablesPerRoom(year, semester) {
     /*
     Input is an integer representing the year that you'd like to query
     as well as a string representing the semester for which you'd like
@@ -63,7 +58,7 @@ export async function getTablesPerRoom(year, semester) {
     return roomTableDict;
 }
 
-export function getDaysRow(day, table) {
+function getDaysRow(day, table) {
     /*
     Input is an integer representing the day of the week, and a
     HTML table object that corresponds to a room.
@@ -96,7 +91,7 @@ export function getDaysRow(day, table) {
     return tableRow;
 }
 
-export function hasNoScheduledEvent(row, time) {
+function hasNoScheduledEvent(row, time) {
     /*
     Input is an HTML row representing a room's availability
     for a given day, and a time given by a Date().
@@ -139,7 +134,7 @@ export function hasNoScheduledEvent(row, time) {
     return flag;
 }
 
-export function convertTimetoColspan(time) {
+function convertTimetoColspan(time) {
     /*
     Input is a time given by a Date() object between
     8 AM and 9:45 PM.
@@ -154,7 +149,7 @@ export function convertTimetoColspan(time) {
     return (hours - 8) * 4 + Math.floor(minutes / 15);
 }
 
-export function getSemesterFromDate(date) {
+function getSemesterFromDate(date) {
     /*
     Input is a Date() object.
 
@@ -177,7 +172,7 @@ export function getSemesterFromDate(date) {
     return 'F';
 }
 
-export async function getAvailableRooms(date) {
+async function getAvailableRooms(date) {
     /*
     Input is a Date() object.
 
@@ -201,6 +196,23 @@ export async function getAvailableRooms(date) {
     }
     return availableRooms;
 }
+
+chrome.runtime.onInstalled.addListener(details => {
+    getAvailableRooms(new Date()).then(rooms => {
+        chrome.storage.local.set({availableRooms: rooms});
+        chrome.alarms.create('rooms', {
+            periodInMinutes: 15,
+        });
+    });
+
+    chrome.alarms.onAlarm.addListener(alarm => {
+        if (alarm.name === 'rooms') {
+            getAvailableRooms(new Date()).then(rooms => {
+                chrome.storage.local.set({availableRooms: rooms});
+            });
+        }
+    });
+});
 
 // async function testGetAvailableRooms() {
 //     /*
