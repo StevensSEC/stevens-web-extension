@@ -1,0 +1,9 @@
+h3 Available Rooms
+p
+| These are the available rooms as reflected by the data available on the
+a(href='https://web.stevens.edu/roomsched/')  web.stevens.edu/roomsched/
+|  website.
+p
+ul
+    each room in availableRooms ? availableRooms : []
+        li= room
