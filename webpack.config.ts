@@ -9,6 +9,7 @@ const config = {
     node: {
         fs: 'empty',
     },
+    target: 'node',
     devtool:
         process.env.NODE_ENV === 'production'
             ? 'inline-source-map'
