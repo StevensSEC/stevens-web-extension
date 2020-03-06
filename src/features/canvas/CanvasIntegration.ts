@@ -4,8 +4,8 @@ const CANVAS_API = 'https://sit.instructure.com/api/v1/';
 function getUpcomingAssignments() {
     chrome.storage.local.get('tokens', tokens => {
         // If you want to test this, uncomment the code below with your token
-        // tokens.canvas = '<YOUR TOKEN HERE>';
-        if (tokens.canvas !== '') {
+        // tokens.canvas = '<YOUR TOKEN>';
+        if (!tokens.canvas) {
             const AUTH = '?access_token=' + tokens.canvas;
             fetch(CANVAS_API + 'users/self/upcoming_events' + AUTH)
                 .then(
@@ -21,7 +21,11 @@ function getUpcomingAssignments() {
                         .filter(x => x.type === 'assignment')
                         .map(x => {
                             // let due = moment(x.due).format('');
-                            return {title: x.title, due: x.assignment.due_at};
+                            return {
+                                title: x.title,
+                                due: x.assignment.due_at,
+                                created: x.created_at,
+                            };
                         });
                     chrome.storage.local.set({
                         upcomingAssignments: assignments,
