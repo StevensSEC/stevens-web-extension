@@ -1,4 +1,6 @@
-// import log from './shared/utility';
+let canvasTextbox: HTMLInputElement = document.querySelector(
+    'input[name=canvas]'
+);
 
 document.addEventListener('DOMContentLoaded', e => {
     let activeFeatures = {};
@@ -15,3 +17,12 @@ document.addEventListener('DOMContentLoaded', e => {
       chrome.storage.local.get('activeFeatures', result => { ... })
     */
 });
+
+canvasTextbox.onfocus = () => {
+    canvasTextbox.setAttribute('type', 'text');
+};
+
+canvasTextbox.onblur = () => {
+    canvasTextbox.setAttribute('type', 'password');
+    chrome.storage.local.set({canvasAPIToken: canvasTextbox.value});
+};
