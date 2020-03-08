@@ -49,7 +49,7 @@ function parse(HTMLString: string) {
  * Return an object whose properties are the names of the rooms listed on
  * the HTMLDocument and whose values are the HTML table elements objects
  * corresponding to those rooms.
- * @param HTMLDocument The Documnet containing information about room scheduling.
+ * @param HTMLDocument The Document containing information about room scheduling.
  */
 function getTablesPerRoom(HTMLDocument: Document) {
     let roomTableDict = {};
@@ -139,7 +139,7 @@ function hasNoScheduledEvent(row, date: Date) {
 /**
  * Returns the column of the table this time occupies on the
     room scheduling website.
- * @param date A Date() object between 8 AM and 9:45 PM.
+ * @param date A Date object between 8 AM and 9:45 PM.
  */
 function convertTimetoColspan(date: Date) {
     //8 AM -> 0, 9:45 PM -> 55
@@ -170,23 +170,18 @@ function getSemesterFromDate(date: Date) {
     return 'F';
 }
 
-//fetch, parse, then execute logic
-
 /**
  * Returns an array of rooms that are available;
  * no classes are schedlued in these rooms during the passed in
  * time.
  * @param date The current Date.
+ * @param HTMLDocument The Documnent containing information about room scheduling.
  */
-async function getAvailableRooms(date: Date) {
+function getAvailableRooms(date: Date, HTMLDocument: Document) {
     let availableRooms = [];
-
-    let year = date.getFullYear();
-    let semester = getSemesterFromDate(date);
     let day = date.getDay();
 
-    let scheduleHTML = await fetchRoomSchedHTML(year, semester);
-    let tables = getTablesPerRoom(parse(scheduleHTML));
+    let tables = getTablesPerRoom(HTMLDocument);
     for (let room in tables) {
         let row = getDaysRow(day, tables[room]);
         if (hasNoScheduledEvent(row, date)) {
@@ -196,18 +191,19 @@ async function getAvailableRooms(date: Date) {
     return availableRooms;
 }
 
-chrome.runtime.onInstalled.addListener(details => {
-    getAvailableRooms(new Date()).then(rooms => {
-        chrome.storage.local.set({availableRooms: rooms});
-        chrome.alarms.create('rooms', {
-            periodInMinutes: 15,
-        });
+chrome.runtime.onInstalled.addListener(async details => {
+    let today = new Date();
+    let semester = getSemesterFromDate(today);
+    let html = parse(await fetchRoomSchedHTML(today.getFullYear(), semester));
+    chrome.storage.local.set({availableRooms: getAvailableRooms(today, html)});
+    chrome.alarms.create('rooms', {
+        periodInMinutes: 15,
     });
 
     chrome.alarms.onAlarm.addListener(alarm => {
         if (alarm.name === 'rooms') {
-            getAvailableRooms(new Date()).then(rooms => {
-                chrome.storage.local.set({availableRooms: rooms});
+            chrome.storage.local.set({
+                availableRooms: getAvailableRooms(today, html),
             });
         }
     });
@@ -219,9 +215,11 @@ chrome.runtime.onInstalled.addListener(details => {
 //     true if working as expected.
 //     */
 
-//     const availableRooms = await getAvailableRooms(
-//         new Date('February 24, 2020 08:00:00')
-//     );
+//     let date = new Date('February 24, 2020 08:00:00');
+//     let semester = getSemesterFromDate(date);
+//     let html = parse(await fetchRoomSchedHTML(date.getFullYear(), semester));
+
+//     const availableRooms = getAvailableRooms(date, html);
 //     console.log(
 //         'getAvailableRooms() thinks that these are the available rooms on Monday at 8 AM:'
 //     );
