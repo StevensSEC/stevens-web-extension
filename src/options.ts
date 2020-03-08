@@ -24,5 +24,5 @@ canvasTextbox.onfocus = () => {
 
 canvasTextbox.onblur = () => {
     canvasTextbox.setAttribute('type', 'password');
-    chrome.storage.local.set({canvasAPIToken: canvasTextbox.value});
+    chrome.storage.local.set({tokens: {canvas: canvasTextbox.value}});
 };
