@@ -1,6 +1,9 @@
 let canvasTextbox: HTMLInputElement = document.querySelector(
     'input[name=canvas]'
 );
+let canvasCheckbox: HTMLInputElement = document.querySelector(
+    '#canvas-integration'
+);
 
 document.addEventListener('DOMContentLoaded', e => {
     let activeFeatures = {};
@@ -28,4 +31,18 @@ canvasTextbox.onfocus = () => {
 canvasTextbox.onblur = () => {
     canvasTextbox.setAttribute('type', 'password');
     chrome.storage.local.set({tokens: {canvas: canvasTextbox.value}});
+};
+
+//disable canvas API token text box when Canvas Integration
+//is not desired
+canvasCheckbox.onchange = () => {
+    if (canvasCheckbox.checked) {
+        canvasTextbox.readOnly = false;
+        canvasTextbox.style.backgroundColor = '#FFFFFF';
+        canvasTextbox.style.color = '#000000';
+        return;
+    }
+    canvasTextbox.style.backgroundColor = '#e3e3e3';
+    canvasTextbox.style.color = '#404040';
+    canvasTextbox.readOnly = true;
 };
