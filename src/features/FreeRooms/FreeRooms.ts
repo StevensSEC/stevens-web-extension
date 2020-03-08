@@ -1,24 +1,22 @@
 import ROOMS from './Rooms';
 
 //fetching
-async function fetchRoomSchedHTML(year, semester) {
-    /*
-    Input is an integer representing the year that you'd like to query
-    as well as a string representing the semester for which you'd like
-    to query.
 
+/**
+ * Fetches the HTML from the Stevens room scheduling
+ * website for the specified year and semster.
+ * @param year An integer representing the year to query.
+ * @param semester The semester to be queried. Possible values are: 'F', 'S', 'A', 'B', 'W'.
+ */
+async function fetchRoomSchedHTML(year: Number, semester: string) {
+    /*
     Possible Semester Values:
     F - Fall
     S - Spring
     A - Summer Session A
     B - Summer Session B
     W - Winter Session
-
-    Output is a Promise that, if successful, returns a string of HTML
-    that is received when making a GET request to the
-    Stevens room schedule website.
     */
-
     try {
         const response = await fetch(
             `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`,
@@ -36,19 +34,24 @@ async function fetchRoomSchedHTML(year, semester) {
 }
 
 //parsing
-function parse(HTMLString) {
+
+/**
+ * Returns an HTML Document parsed from HTMLString.
+ * @param HTMLString The string of HTML to be parsed.
+ */
+function parse(HTMLString: string) {
     return new DOMParser().parseFromString(HTMLString, 'text/html');
 }
 
 //logic
-function getTablesPerRoom(HTMLDocument) {
-    /*
-    Input is an HTML document.
 
-    Output is an object whose properties are the names of the rooms listed on
-    the document and whose values for those properties are the HTML table elements objects
-    corresponding to those rooms.
-    */
+/**
+ * Return an object whose properties are the names of the rooms listed on
+ * the HTMLDocument and whose values are the HTML table elements objects
+ * corresponding to those rooms.
+ * @param HTMLDocument The Documnet containing information about room scheduling.
+ */
+function getTablesPerRoom(HTMLDocument: Document) {
     let roomTableDict = {};
     let roomTables = HTMLDocument.querySelectorAll('table');
     for (let i = 0; i < ROOMS.length; i++) {
@@ -60,14 +63,12 @@ function getTablesPerRoom(HTMLDocument) {
     return roomTableDict;
 }
 
-function getDaysRow(day, table) {
-    /*
-    Input is an integer representing the day of the week, and a
-    HTML table object that corresponds to a room.
-
-    Output is a table row object that corresponds to the selected day.
-    */
-
+/**
+ * Returns a table row object that corresponds to the selected day.
+ * @param day The day to retrieve the row for.
+ * @param table The table to retrieve the row from.
+ */
+function getDaysRow(day, table: HTMLTableElement) {
     if (day === 0 || day === 6) {
         //It's the weekend, there are no classes scheduled
         return null;
@@ -93,16 +94,14 @@ function getDaysRow(day, table) {
     return tableRow;
 }
 
-function hasNoScheduledEvent(row, time) {
-    /*
-    Input is an HTML row representing a room's availability
-    for a given day, and a time given by a Date().
-
-    Output is a boolean indicating whether the room has an event
-    during the time passed in.
-    */
-
-    if (time.getHours() < 8 || time.getHours() > 22) {
+/**
+ * Returns a boolean indicating whether the room has an event
+ * during the time passed in.
+ * @param row The HTML row for the considered room and day.
+ * @param date A Date object whose time is considered.
+ */
+function hasNoScheduledEvent(row, date: Date) {
+    if (date.getHours() < 8 || date.getHours() > 22) {
         //These times are outside building operation hours
         return false;
     }
@@ -118,7 +117,7 @@ function hasNoScheduledEvent(row, time) {
 
     //There are a additional 3 segments that are on the table but unaccounted for.
 
-    let colspanTime = convertTimetoColspan(time);
+    let colspanTime = convertTimetoColspan(date);
     let totalColspan = 0;
     let flag = false;
     let dataElements = row.querySelectorAll('td');
@@ -137,28 +136,24 @@ function hasNoScheduledEvent(row, time) {
     return flag;
 }
 
-function convertTimetoColspan(time) {
-    /*
-    Input is a time given by a Date() object between
-    8 AM and 9:45 PM.
-    Output is the column of the table this time occupies on the
+/**
+ * Returns the column of the table this time occupies on the
     room scheduling website.
-    */
-
+ * @param date A Date() object between 8 AM and 9:45 PM.
+ */
+function convertTimetoColspan(date: Date) {
     //8 AM -> 0, 9:45 PM -> 55
 
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
     return (hours - 8) * 4 + Math.floor(minutes / 15);
 }
 
-function getSemesterFromDate(date) {
-    /*
-    Input is a Date() object.
-
-    Output is the current semester that corresponds to that date.
-    */
-
+/**
+ * Returns the current semester that corresponds to date.
+ * @param date A Date whose month is considered.
+ */
+function getSemesterFromDate(date: Date) {
     //TODO: more accurately determine the current semester
     //without relying only on the month
 
@@ -176,15 +171,14 @@ function getSemesterFromDate(date) {
 }
 
 //fetch, parse, then execute logic
-async function getAvailableRooms(date) {
-    /*
-    Input is a Date() object.
 
-    Output is a Promise that on success
-    returns an array of rooms with no classes scheduled according
-    to the room scheduling website.
-    */
-
+/**
+ * Returns an array of rooms that are available;
+ * no classes are schedlued in these rooms during the passed in
+ * time.
+ * @param date The current Date.
+ */
+async function getAvailableRooms(date: Date) {
     let availableRooms = [];
 
     let year = date.getFullYear();
