@@ -1,6 +1,7 @@
 import ROOMS from './Rooms';
 
-async function getRoomSchedHTML(year, semester) {
+//fetching
+async function fetchRoomSchedHTML(year, semester) {
     /*
     Input is an integer representing the year that you'd like to query
     as well as a string representing the semester for which you'd like
@@ -34,22 +35,22 @@ async function getRoomSchedHTML(year, semester) {
     }
 }
 
-async function getTablesPerRoom(year, semester) {
+//parsing
+function parse(HTMLString) {
+    return new DOMParser().parseFromString(HTMLString, 'text/html');
+}
+
+//logic
+function getTablesPerRoom(HTMLDocument) {
     /*
-    Input is an integer representing the year that you'd like to query
-    as well as a string representing the semester for which you'd like
-    to query.
+    Input is an HTML document.
 
     Output is an object whose properties are the names of the rooms listed on
-    web.stevens.edu and whose values for those properties are the HTML table elements objects
+    the document and whose values for those properties are the HTML table elements objects
     corresponding to those rooms.
     */
-    let HTMLString;
     let roomTableDict = {};
-    HTMLString = await getRoomSchedHTML(year, semester);
-    let domparser = new DOMParser();
-    let document = domparser.parseFromString(HTMLString, 'text/html');
-    let roomTables = document.querySelectorAll('table');
+    let roomTables = HTMLDocument.querySelectorAll('table');
     for (let i = 0; i < ROOMS.length; i++) {
         //match all of the tables loaded in the HTML to a the name of a room
         //checking by hand, it seems there are only as many tables as there are rooms
@@ -101,6 +102,11 @@ function hasNoScheduledEvent(row, time) {
     during the time passed in.
     */
 
+    if (time.getHours() < 8 || time.getHours() > 22) {
+        //These times are outside building operation hours
+        return false;
+    }
+
     if (!row) {
         //It's the weekend
         return true;
@@ -112,10 +118,6 @@ function hasNoScheduledEvent(row, time) {
 
     //There are a additional 3 segments that are on the table but unaccounted for.
 
-    if (time.getHours() < 8 || time.getHours() > 22) {
-        //These times are outside building operation hours
-        return false;
-    }
     let colspanTime = convertTimetoColspan(time);
     let totalColspan = 0;
     let flag = false;
@@ -173,6 +175,7 @@ function getSemesterFromDate(date) {
     return 'F';
 }
 
+//fetch, parse, then execute logic
 async function getAvailableRooms(date) {
     /*
     Input is a Date() object.
@@ -188,7 +191,8 @@ async function getAvailableRooms(date) {
     let semester = getSemesterFromDate(date);
     let day = date.getDay();
 
-    let tables = await getTablesPerRoom(year, semester);
+    let scheduleHTML = await fetchRoomSchedHTML(year, semester);
+    let tables = getTablesPerRoom(parse(scheduleHTML));
     for (let room in tables) {
         let row = getDaysRow(day, tables[room]);
         if (hasNoScheduledEvent(row, date)) {
@@ -333,3 +337,4 @@ chrome.runtime.onInstalled.addListener(details => {
 //         ])
 //     );
 // }
+// testGetAvailableRooms().then(bool => console.log(bool));
