@@ -3,8 +3,6 @@
 const CANVAS_API = 'https://sit.instructure.com/api/v1/';
 function getUpcomingAssignments() {
     chrome.storage.local.get('tokens', object => {
-        // If you want to test this, uncomment the code below with your token
-        // tokens.canvas = '<YOUR TOKEN HERE>';
         let {tokens} = object;
         if (tokens.canvas && tokens.canvas !== '') {
             const AUTH = '?access_token=' + tokens.canvas;
