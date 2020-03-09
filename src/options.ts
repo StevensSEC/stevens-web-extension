@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', e => {
         .forEach((x: HTMLInputElement) => {
             activeFeatures[x.id] = x.checked;
         });
-    chrome.storage.local.get('tokens', object => {
-        canvasTextbox.value = object.tokens.canvas;
+    chrome.storage.local.get('tokens', ({tokens}) => {
+        canvasTextbox.value = tokens.canvas;
     });
     // log(activeFeatures);
     /* To Do

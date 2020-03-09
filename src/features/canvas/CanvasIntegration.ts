@@ -2,9 +2,8 @@
 // Initialize Canvas polling
 const CANVAS_API = 'https://sit.instructure.com/api/v1/';
 function getUpcomingAssignments() {
-    chrome.storage.local.get('tokens', object => {
-        let {tokens} = object;
-        if (tokens.canvas && tokens.canvas !== '') {
+    chrome.storage.local.get('tokens', ({tokens}) => {
+        if (tokens.canvas) {
             const AUTH = '?access_token=' + tokens.canvas;
             fetch(CANVAS_API + 'users/self/upcoming_events' + AUTH)
                 .then(
