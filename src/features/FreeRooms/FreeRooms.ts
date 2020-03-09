@@ -171,46 +171,42 @@ function getSemesterFromDate(date: Date) {
 }
 
 /**
- * Returns an array of rooms that are available;
- * no classes are schedlued in these rooms during the passed in
- * time.
- * @param date The current Date.
- * @param HTMLDocument The Documnent containing information about room scheduling.
+ * Updates the rooms in storage.
  */
-function getAvailableRooms(date: Date, HTMLDocument: Document) {
+function getAvailableRooms() {
     let availableRooms = [];
-    let day = date.getDay();
+    let today = new Date();
 
-    let tables = getTablesPerRoom(HTMLDocument);
-    for (let room in tables) {
-        let row = getDaysRow(day, tables[room]);
-        if (hasNoScheduledEvent(row, date)) {
-            availableRooms.push(room);
+    fetchRoomSchedHTML(today.getFullYear(), getSemesterFromDate(today)).then(
+        res => {
+            let tables = getTablesPerRoom(parse(res));
+            for (let room in tables) {
+                let row = getDaysRow(today.getDay(), tables[room]);
+                if (hasNoScheduledEvent(row, today)) {
+                    availableRooms.push(room);
+                }
+            }
+            chrome.storage.local.set({availableRooms: availableRooms});
         }
-    }
-    return availableRooms;
+    );
 }
 
-chrome.runtime.onInstalled.addListener(async details => {
-    let today = new Date();
-    let semester = getSemesterFromDate(today);
-    let html = parse(await fetchRoomSchedHTML(today.getFullYear(), semester));
-    chrome.storage.local.set({availableRooms: getAvailableRooms(today, html)});
+chrome.runtime.onInstalled.addListener(details => {
+    getAvailableRooms();
     chrome.alarms.create('rooms', {
         periodInMinutes: 15,
     });
 
     chrome.alarms.onAlarm.addListener(alarm => {
         if (alarm.name === 'rooms') {
-            chrome.storage.local.set({
-                availableRooms: getAvailableRooms(today, html),
-            });
+            getAvailableRooms();
         }
     });
 });
 
 // async function testGetAvailableRooms() {
 //     /*
+//      DEPRECATED
 //     A test to ensure that getAvailableRooms is functional. Returns
 //     true if working as expected.
 //     */
