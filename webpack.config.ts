@@ -22,6 +22,7 @@ const config = {
         background: path.join(__dirname, 'src/background.ts'),
         options: path.join(__dirname, 'src/options.ts'),
         popup: path.join(__dirname, 'src/popup.ts'),
+        content: path.join(__dirname, 'src/content.ts'),
     },
     output: {
         path: path.join(__dirname, 'dist'),

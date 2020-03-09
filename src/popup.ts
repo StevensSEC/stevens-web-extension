@@ -1,6 +1,6 @@
-const UpdateCanvas = require('./features/canvas/CanvasDisplay.pug');
-const UpdateRooms = require('./features/freeRooms/FreeRoomsDisplay.pug');
-import log from './shared/utility';
+const UpdateCanvas = require('./features/Canvas/CanvasDisplay.pug');
+const UpdateRooms = require('./features/FreeRooms/FreeRoomsDisplay.pug');
+import {log} from './shared/utility';
 
 document.addEventListener('DOMContentLoaded', () => {
     /* To Do
