@@ -13,4 +13,20 @@ block append content
         input#room-availability(type='checkbox' name='features' checked)
         label(for='room-availability') Room Availability
     #tokens API Tokens
-        input#canvas-token(type='textbox')
+        h5 Canvas Token
+        p
+        | The Canvas token allows the web extension to access your Canvas, so it can
+        | show you useful information like your assignments. You must provide a Canvas
+        | token for Canvas Integration.
+        p
+        | To gain access to your Canvas token, navigate to
+        a(href="https://stevens.edu/canvas")  Canvas
+        |  and click on your
+        | profile. Click 'Settings' and scroll down until you see 'Approved Integrations.'
+        | Click the 'New Access Token' button and enter 'stevens-web-extension' in the
+        | textbox labeled 'Purpose'. Leave 'Expires' blank and generate the token. Copy
+        | this token and paste into the box below and submit it. You may also want to copy
+        | it somewhere else for safekeeping, as Canvas hides it after it first generates it.
+        p Note: DO NOT share your Canvas token with anyone!
+        input#canvas-token(type='password' name='canvas' size=90 autocomplete='off'
+        placeholder='Canvas API Token' spellcheck=false)
