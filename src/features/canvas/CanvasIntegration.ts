@@ -22,6 +22,7 @@ function getUpcomingAssignments() {
                             return {
                                 title: x.title,
                                 due: x.assignment.due_at,
+                                created: x.created_at,
                             };
                         });
                     chrome.storage.local.set({
