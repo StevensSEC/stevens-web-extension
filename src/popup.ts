@@ -1,6 +1,6 @@
 const UpdateCanvas = require('./features/Canvas/CanvasDisplay.pug');
 const UpdateRooms = require('./features/FreeRooms/FreeRoomsDisplay.pug');
-const UpdateMyStevens = require('./features/myStevens/MyStevensDisplay.pug');
+const UpdateMyStevens = require('./features/MyStevens/MyStevensDisplay.pug');
 import {browser} from 'webextension-polyfill-ts';
 import $ from 'cash-dom';
 // import {log} from './shared/utility';
