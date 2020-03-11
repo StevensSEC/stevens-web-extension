@@ -1,0 +1,7 @@
+h3 Duckcard Status
+if hasAuth
+    each bal, acc in duckcard
+        .account= acc
+            span.balance : #{bal}
+else
+    .error Cannot get Duckcard data without Stevens credentials (see extension options)

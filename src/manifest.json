@@ -8,7 +8,7 @@
         "bookmarks",
         "contextMenus",
         "storage",
-        "<all_urls>"
+        "tabs"
     ],
     "icons": {
         "128": "assets/icon128.png",
@@ -23,7 +23,7 @@
     },
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
+            "matches": ["*://*.stevens.edu/*", "*://*.jsatech.com/*"],
             "js": ["content.js"]
         }
     ],

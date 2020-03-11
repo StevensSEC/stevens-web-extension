@@ -1,17 +1,12 @@
 import {browser} from 'webextension-polyfill-ts';
 
-async function log(message) {
+// Allow usage of console.log on pages without access to the extension console
+// This includes the popup and options page
+async function log(...msgs) {
     let page = browser.extension.getBackgroundPage();
     if (page) {
-        page.console.log(message);
+        page.console.log(...msgs);
     }
 }
 
-async function getPageInfo() {
-    return {
-        title: document.title,
-        html: document.body.innerHTML,
-    };
-}
-
-export {log, getPageInfo};
+export {log};
