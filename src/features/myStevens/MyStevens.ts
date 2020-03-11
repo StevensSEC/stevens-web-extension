@@ -45,7 +45,7 @@ async function getMealSwipes() {
                         }
                         for (let j = 0; j < numBal; j++) {
                             let text = $(amount[j + 1]).text();
-                            let val = text.match(/$?[\d\.]+/)[0];
+                            let val = text.match(/\$?[\d\.]+/)[0];
                             amounts.push(val);
                         }
                     });
