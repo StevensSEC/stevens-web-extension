@@ -1,10 +1,11 @@
-// import moment from 'moment';
+import moment from 'moment';
 // Initialize Canvas polling
 const CANVAS_API = 'https://sit.instructure.com/api/v1/';
 function getUpcomingAssignments() {
     chrome.storage.local.get('tokens', tokens => {
         // If you want to test this, uncomment the code below with your token
-        // tokens.canvas = '<YOUR TOKEN HERE>';
+        tokens.canvas =
+            '1030~smQEzE9NKeqeaUcyCda5XR2cSpH0tPlAAWKfFKyDQA3opjE289itR5XCWTAAxnou';
         if (tokens.canvas !== '') {
             const AUTH = '?access_token=' + tokens.canvas;
             fetch(CANVAS_API + 'users/self/upcoming_events' + AUTH)
@@ -20,8 +21,11 @@ function getUpcomingAssignments() {
                     let assignments = res
                         .filter(x => x.type === 'assignment')
                         .map(x => {
-                            // let due = moment(x.due).format('');
-                            return {title: x.title, due: x.assignment.due_at};
+                            let dueAt = moment(x.assignment.due_at);
+                            return {
+                                title: x.title,
+                                due: dueAt.format('LLLL'),
+                            };
                         });
                     chrome.storage.local.set({
                         upcomingAssignments: assignments,
