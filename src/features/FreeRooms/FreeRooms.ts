@@ -1,23 +1,22 @@
 import ROOMS from './Rooms';
 
-async function getRoomSchedHTML(year, semester) {
-    /*
-    Input is an integer representing the year that you'd like to query
-    as well as a string representing the semester for which you'd like
-    to query.
+//fetching
 
+/**
+ * Fetches the HTML from the Stevens room scheduling
+ * website for the specified year and semster.
+ * @param year An integer representing the year to query.
+ * @param semester The semester to be queried. Possible values are: 'F', 'S', 'A', 'B', 'W'.
+ */
+async function fetchRoomSchedHTML(year: Number, semester: string) {
+    /*
     Possible Semester Values:
     F - Fall
     S - Spring
     A - Summer Session A
     B - Summer Session B
     W - Winter Session
-
-    Output is a Promise that, if successful, returns a string of HTML
-    that is received when making a GET request to the
-    Stevens room schedule website.
     */
-
     try {
         const response = await fetch(
             `https://web.stevens.edu/roomsched?year=${year}&session=${semester}`,
@@ -34,22 +33,27 @@ async function getRoomSchedHTML(year, semester) {
     }
 }
 
-async function getTablesPerRoom(year, semester) {
-    /*
-    Input is an integer representing the year that you'd like to query
-    as well as a string representing the semester for which you'd like
-    to query.
+//parsing
 
-    Output is an object whose properties are the names of the rooms listed on
-    web.stevens.edu and whose values for those properties are the HTML table elements objects
-    corresponding to those rooms.
-    */
-    let HTMLString;
+/**
+ * Returns an HTML Document parsed from HTMLString.
+ * @param HTMLString The string of HTML to be parsed.
+ */
+function parse(HTMLString: string) {
+    return new DOMParser().parseFromString(HTMLString, 'text/html');
+}
+
+//logic
+
+/**
+ * Return an object whose properties are the names of the rooms listed on
+ * the HTMLDocument and whose values are the HTML table elements objects
+ * corresponding to those rooms.
+ * @param HTMLDocument The Document containing information about room scheduling.
+ */
+function getTablesPerRoom(HTMLDocument: Document) {
     let roomTableDict = {};
-    HTMLString = await getRoomSchedHTML(year, semester);
-    let domparser = new DOMParser();
-    let document = domparser.parseFromString(HTMLString, 'text/html');
-    let roomTables = document.querySelectorAll('table');
+    let roomTables = HTMLDocument.querySelectorAll('table');
     for (let i = 0; i < ROOMS.length; i++) {
         //match all of the tables loaded in the HTML to a the name of a room
         //checking by hand, it seems there are only as many tables as there are rooms
@@ -59,14 +63,12 @@ async function getTablesPerRoom(year, semester) {
     return roomTableDict;
 }
 
-function getDaysRow(day, table) {
-    /*
-    Input is an integer representing the day of the week, and a
-    HTML table object that corresponds to a room.
-
-    Output is a table row object that corresponds to the selected day.
-    */
-
+/**
+ * Returns a table row object that corresponds to the selected day.
+ * @param day The day to retrieve the row for.
+ * @param table The table to retrieve the row from.
+ */
+function getDaysRow(day, table: HTMLTableElement) {
     if (day === 0 || day === 6) {
         //It's the weekend, there are no classes scheduled
         return null;
@@ -92,14 +94,17 @@ function getDaysRow(day, table) {
     return tableRow;
 }
 
-function hasNoScheduledEvent(row, time) {
-    /*
-    Input is an HTML row representing a room's availability
-    for a given day, and a time given by a Date().
-
-    Output is a boolean indicating whether the room has an event
-    during the time passed in.
-    */
+/**
+ * Returns a boolean indicating whether the room has an event
+ * during the time passed in.
+ * @param row The HTML row for the considered room and day.
+ * @param date A Date object whose time is considered.
+ */
+function hasNoScheduledEvent(row, date: Date) {
+    if (date.getHours() < 8 || date.getHours() > 22) {
+        //These times are outside building operation hours
+        return false;
+    }
 
     if (!row) {
         //It's the weekend
@@ -112,11 +117,7 @@ function hasNoScheduledEvent(row, time) {
 
     //There are a additional 3 segments that are on the table but unaccounted for.
 
-    if (time.getHours() < 8 || time.getHours() > 22) {
-        //These times are outside building operation hours
-        return false;
-    }
-    let colspanTime = convertTimetoColspan(time);
+    let colspanTime = convertTimetoColspan(date);
     let totalColspan = 0;
     let flag = false;
     let dataElements = row.querySelectorAll('td');
@@ -135,28 +136,24 @@ function hasNoScheduledEvent(row, time) {
     return flag;
 }
 
-function convertTimetoColspan(time) {
-    /*
-    Input is a time given by a Date() object between
-    8 AM and 9:45 PM.
-    Output is the column of the table this time occupies on the
+/**
+ * Returns the column of the table this time occupies on the
     room scheduling website.
-    */
-
+ * @param date A Date object between 8 AM and 9:45 PM.
+ */
+function convertTimetoColspan(date: Date) {
     //8 AM -> 0, 9:45 PM -> 55
 
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
     return (hours - 8) * 4 + Math.floor(minutes / 15);
 }
 
-function getSemesterFromDate(date) {
-    /*
-    Input is a Date() object.
-
-    Output is the current semester that corresponds to that date.
-    */
-
+/**
+ * Returns the current semester that corresponds to date.
+ * @param date A Date whose month is considered.
+ */
+function getSemesterFromDate(date: Date) {
     //TODO: more accurately determine the current semester
     //without relying only on the month
 
@@ -173,57 +170,52 @@ function getSemesterFromDate(date) {
     return 'F';
 }
 
-async function getAvailableRooms(date) {
-    /*
-    Input is a Date() object.
-
-    Output is a Promise that on success
-    returns an array of rooms with no classes scheduled according
-    to the room scheduling website.
-    */
-
+/**
+ * Updates the rooms in storage.
+ */
+function getAvailableRooms() {
     let availableRooms = [];
+    let today = new Date();
 
-    let year = date.getFullYear();
-    let semester = getSemesterFromDate(date);
-    let day = date.getDay();
-
-    let tables = await getTablesPerRoom(year, semester);
-    for (let room in tables) {
-        let row = getDaysRow(day, tables[room]);
-        if (hasNoScheduledEvent(row, date)) {
-            availableRooms.push(room);
+    fetchRoomSchedHTML(today.getFullYear(), getSemesterFromDate(today)).then(
+        res => {
+            let tables = getTablesPerRoom(parse(res));
+            for (let room in tables) {
+                let row = getDaysRow(today.getDay(), tables[room]);
+                if (hasNoScheduledEvent(row, today)) {
+                    availableRooms.push(room);
+                }
+            }
+            chrome.storage.local.set({availableRooms: availableRooms});
         }
-    }
-    return availableRooms;
+    );
 }
 
 chrome.runtime.onInstalled.addListener(details => {
-    getAvailableRooms(new Date()).then(rooms => {
-        chrome.storage.local.set({availableRooms: rooms});
-        chrome.alarms.create('rooms', {
-            periodInMinutes: 15,
-        });
+    getAvailableRooms();
+    chrome.alarms.create('rooms', {
+        periodInMinutes: 15,
     });
 
     chrome.alarms.onAlarm.addListener(alarm => {
         if (alarm.name === 'rooms') {
-            getAvailableRooms(new Date()).then(rooms => {
-                chrome.storage.local.set({availableRooms: rooms});
-            });
+            getAvailableRooms();
         }
     });
 });
 
 // async function testGetAvailableRooms() {
 //     /*
+//      DEPRECATED
 //     A test to ensure that getAvailableRooms is functional. Returns
 //     true if working as expected.
 //     */
 
-//     const availableRooms = await getAvailableRooms(
-//         new Date('February 24, 2020 08:00:00')
-//     );
+//     let date = new Date('February 24, 2020 08:00:00');
+//     let semester = getSemesterFromDate(date);
+//     let html = parse(await fetchRoomSchedHTML(date.getFullYear(), semester));
+
+//     const availableRooms = getAvailableRooms(date, html);
 //     console.log(
 //         'getAvailableRooms() thinks that these are the available rooms on Monday at 8 AM:'
 //     );
@@ -333,3 +325,4 @@ chrome.runtime.onInstalled.addListener(details => {
 //         ])
 //     );
 // }
+// testGetAvailableRooms().then(bool => console.log(bool));
