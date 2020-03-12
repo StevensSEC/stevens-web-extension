@@ -35,6 +35,13 @@ async function getMealSwipes() {
                     let amounts = [];
                     let $html = $($.parseHTML(msg.html));
                     let $content = $html.find('.jsa_content-interior');
+                    $content.find('h3').each((i, x) => {
+                        names.push(
+                            $(x)
+                                .text()
+                                .trim()
+                        );
+                    });
                     $content.find('.jsa_transactions').each((i, x) => {
                         let amount = $(x).find('.jsa_amount');
                         let numBal = 1;
@@ -49,6 +56,7 @@ async function getMealSwipes() {
                             amounts.push(val);
                         }
                     });
+                    console.log(names, amounts);
                     let data = names.reduce(
                         (o, k, i) => ({...o, [k]: amounts[i]}),
                         {}
