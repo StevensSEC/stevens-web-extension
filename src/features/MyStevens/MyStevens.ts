@@ -1,6 +1,6 @@
-import {browser} from 'webextension-polyfill-ts';
-import $ from 'cash-dom';
-import moment from 'moment';
+import {browser} from './node_modules/webextension-polyfill-ts';
+import $ from './node_modules/cash-dom';
+import moment from './node_modules/moment';
 
 async function GetMealSwipes() {
     /* Retrieves the number of meal swipes remaining by
