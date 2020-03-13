@@ -1,4 +1,10 @@
-h3 Duckcard Status
+block styles append
+    style(type='text/css').
+        #update-duckcard {
+            cursor: pointer;
+        }
+h3 Duckcard Status (updated)
+h5= updated
 if hasAuth
     each bal, acc in duckcard
         .account= acc

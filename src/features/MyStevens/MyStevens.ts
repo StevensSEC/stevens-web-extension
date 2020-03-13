@@ -1,7 +1,8 @@
 import {browser} from 'webextension-polyfill-ts';
 import $ from 'cash-dom';
+import moment from 'moment';
 
-async function getMealSwipes() {
+async function GetMealSwipes() {
     /* Retrieves the number of meal swipes remaining by
     scraping myStevens webapps. */
     let data = await browser.storage.local.get([
@@ -9,7 +10,13 @@ async function getMealSwipes() {
         'stevens-password',
     ]);
     if (!data['stevens-username'] || !data['stevens-password']) {
-        console.error('Cannot get meal swipes without Stevens credentials.');
+        // console.error('Cannot get meal swipes without Stevens credentials.');
+        browser.runtime.sendMessage(browser.runtime.id, {
+            type: 'updateDuckcard',
+            auth: false,
+            duckcard: {},
+            updated: moment(),
+        });
         return;
     }
     // Navigate to Duckbill Overview page
@@ -31,7 +38,7 @@ async function getMealSwipes() {
             });
             port.onMessage.addListener(async (msg, port) => {
                 if (msg.type === 'setPageInfo') {
-                    let names = ['DuckBills'];
+                    let names = [];
                     let amounts = [];
                     let $html = $($.parseHTML(msg.html));
                     let $content = $html.find('.jsa_content-interior');
@@ -56,17 +63,23 @@ async function getMealSwipes() {
                             amounts.push(val);
                         }
                     });
-                    console.log(names, amounts);
                     let data = names.reduce(
                         (o, k, i) => ({...o, [k]: amounts[i]}),
                         {}
                     );
-                    await browser.storage.local.set({
-                        duckcard: data,
-                    });
-                    port.disconnect();
-                    browser.tabs.onUpdated.removeListener(listener);
-                    await browser.tabs.remove(tab.id);
+                    browser.runtime
+                        .sendMessage({
+                            type: 'updateDuckcard',
+                            auth: true,
+                            duckcard: data,
+                            updated: moment(),
+                        })
+                        .catch(console.error)
+                        .then(async res => {
+                            browser.tabs.onUpdated.removeListener(listener);
+                            port.disconnect();
+                            await browser.tabs.remove(tab.id);
+                        });
                 }
             });
             if (tab.url.startsWith(BASE_URI + '/statementnew.php')) {
@@ -80,7 +93,4 @@ async function getMealSwipes() {
     });
 }
 
-browser.runtime.onInstalled.addListener(details => {
-    getMealSwipes();
-    // Require manual refresh using icon
-});
+export {GetMealSwipes};
