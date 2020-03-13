@@ -86,7 +86,7 @@ const config = {
         }),
     ],
     resolve: {
-        extensions: ['.ts', '.js', '.png'],
+        extensions: ['.ts', '.js'],
     },
 };
 export default config;

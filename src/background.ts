@@ -1,5 +1,7 @@
 // These scripts run in the background continuously
-import './assets/temp_icon.png';
+import './assets/icon128.png';
+import './assets/icon48.png';
+import './assets/icon16.png';
 import './features/canvas/CanvasIntegration';
 import './features/tempBookmarks/TemporaryBookmarks';
 import Settings from './shared/settings';
