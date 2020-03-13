@@ -67,6 +67,7 @@ async function GetMealSwipes() {
                         (o, k, i) => ({...o, [k]: amounts[i]}),
                         {}
                     );
+                    // This doesn't work
                     browser.runtime
                         .sendMessage({
                             type: 'updateDuckcard',
