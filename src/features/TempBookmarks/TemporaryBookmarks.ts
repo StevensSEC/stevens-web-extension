@@ -2,7 +2,7 @@
  * - Specify name, location, and duration of temporary bookmarks
  * - Automatically gets deleted if time expires
  */
-import * as moment from './node_modules/moment';
+import * as moment from 'moment';
 const AddTempBookmark = require('./AddTempBookmark.pug');
 
 // Retrieves the first bookmark folder matching the query
