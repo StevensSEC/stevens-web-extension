@@ -11,19 +11,22 @@ async function GetMealSwipes() {
     ]);
     if (!data['stevens-username'] || !data['stevens-password']) {
         // console.error('Cannot get meal swipes without Stevens credentials.');
-        browser.runtime.sendMessage(browser.runtime.id, {
-            type: 'updateDuckcard',
-            auth: false,
-            duckcard: {},
-            updated: moment(),
+        await browser.storage.local.set({
+            duckcard: {
+                auth: false,
+                data: {},
+                updated: moment().format(),
+            },
         });
         return;
     }
+
     // Navigate to Duckbill Overview page
     const BASE_URI = 'https://services.jsatech.com';
     let baseTab = await browser.tabs.create({
         url: BASE_URI + '/login.php?cid=33&wason=/statementnew.php',
     });
+
     browser.tabs.onUpdated.addListener(async function listener(id, info, tab) {
         if (id === baseTab.id && info.status === 'complete') {
             // Send a message to the tab asking for its DOM
@@ -67,20 +70,16 @@ async function GetMealSwipes() {
                         (o, k, i) => ({...o, [k]: amounts[i]}),
                         {}
                     );
-                    // This doesn't work
-                    browser.runtime
-                        .sendMessage({
-                            type: 'updateDuckcard',
+                    await browser.storage.local.set({
+                        duckcard: {
                             auth: true,
-                            duckcard: data,
-                            updated: moment(),
-                        })
-                        .catch(console.error)
-                        .then(async res => {
-                            browser.tabs.onUpdated.removeListener(listener);
-                            port.disconnect();
-                            await browser.tabs.remove(tab.id);
-                        });
+                            data: data,
+                            updated: moment().format(),
+                        },
+                    });
+                    browser.tabs.onUpdated.removeListener(listener);
+                    port.disconnect();
+                    await browser.tabs.remove(tab.id);
                 }
             });
             if (tab.url.startsWith(BASE_URI + '/statementnew.php')) {

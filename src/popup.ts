@@ -1,7 +1,6 @@
 const UpdateCanvas = require('./features/Canvas/CanvasDisplay.pug');
 const UpdateRooms = require('./features/FreeRooms/FreeRoomsDisplay.pug');
 const UpdateMyStevens = require('./features/MyStevens/MyStevensDisplay.pug');
-const extID = browser.runtime.id;
 import {browser} from 'webextension-polyfill-ts';
 import $ from 'cash-dom';
 import moment from 'moment';
@@ -39,36 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // myStevens: Duckcard Balances + Meal Swipes
     browser.storage.local.get('duckcard').then(({duckcard}) => {
-        let hasAuth = false;
-        let updated = '';
+        let auth = false;
+        let updated = 'Never';
         if (duckcard) {
-            hasAuth = true;
-            updated = moment(updated).fromNow();
+            auth = duckcard.auth;
+            updated = moment(duckcard.updated).fromNow();
         }
         $('#my-stevens').html(
             UpdateMyStevens({
-                duckcard: duckcard,
-                hasAuth: hasAuth,
+                duckcard: duckcard.data,
+                hasAuth: auth,
                 updated: updated,
             })
         );
         $('#update-duckcard').on('click', e => {
             log('Querying Duckcard info...');
-            browser.runtime.sendMessage(extID, {
+            browser.runtime.sendMessage({
                 type: 'queryDuckcard',
             });
-        });
-        browser.runtime.onMessage.addListener((msg, sender) => {
-            log('Msg received:', msg);
-            if (msg.type === 'updateDuckcard') {
-                $('#my-stevens').html(
-                    UpdateMyStevens({
-                        duckcard: msg.duckcard,
-                        hasAuth: msg.auth,
-                        updated: msg.updated.fromNow(),
-                    })
-                );
-            }
         });
     });
 });

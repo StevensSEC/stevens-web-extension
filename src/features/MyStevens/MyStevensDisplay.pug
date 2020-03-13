@@ -3,8 +3,8 @@ block styles append
         #update-duckcard {
             cursor: pointer;
         }
-h3 Duckcard Status (updated)
-h5= updated
+h3 Duckcard Status
+h5 Last Updated: #{updated}
 if hasAuth
     each bal, acc in duckcard
         .account= acc
