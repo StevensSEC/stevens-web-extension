@@ -40,13 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
     browser.storage.local.get('duckcard').then(({duckcard}) => {
         let auth = false;
         let updated = 'Never';
+        let data = {};
         if (duckcard) {
             auth = duckcard.auth;
+            data = duckcard.data;
             updated = moment(duckcard.updated).fromNow();
         }
         $('#my-stevens').html(
             UpdateMyStevens({
-                duckcard: duckcard.data,
+                duckcard: data,
                 hasAuth: auth,
                 updated: updated,
             })
