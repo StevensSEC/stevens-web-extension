@@ -501,6 +501,11 @@
   resolved "https://registry.yarnpkg.com/@types/pug/-/pug-2.0.4.tgz#8772fcd0418e3cd2cc171555d73007415051f4b2"
   integrity sha1-h3L80EGOPNLMFxVV1zAHQVBR9LI=
 
+"@types/selenium-webdriver@^4.0.8":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-4.0.8.tgz#87a28a43197903ba2bd8dafa91850760582487b8"
+  integrity sha512-a5/HYMlBM4RNKZHGtIZRpFuk5HChp7raLt9SPiVLP9woUdd65Ix5CEJzjvqQUV68QXdd7xtzyL2n4kMLqCDL6g==
+
 "@types/source-list-map@*":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
@@ -1406,6 +1411,11 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
+
+cash-dom@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/cash-dom/-/cash-dom-6.0.2.tgz#d928919cf7259d5d602c31b58f06382a036d9d37"
+  integrity sha512-tAbI8xMMKj3S4LTtZKVByAU6bMXuhHwH73m6yeWljSMJYxYaXbnpQiBUUldFMOLN+9T0PcxiZtY+vjLbTdxNUg==
 
 center-align@^0.1.1:
   version "0.1.3"
@@ -6571,6 +6581,18 @@ watchpack@^1.6.0:
     chokidar "^2.0.2"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+
+webextension-polyfill-ts@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/webextension-polyfill-ts/-/webextension-polyfill-ts-0.12.0.tgz#4b16c6b2bc21b267b0770af9e29fb5eea0c690de"
+  integrity sha512-U9gL0gm49BLXkbcY3VGb7eN2LMtxYMIqgPAENDpV4wxXmsrhx7YK2ETYj1as+hMvrJyrxO/4tmfsAUkdFJqYIw==
+  dependencies:
+    webextension-polyfill "^0.6.0"
+
+webextension-polyfill@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.6.0.tgz#1afd925f3274a0d4848083579b9c0b649a5c6763"
+  integrity sha512-PlYwiX8e4bNZrEeBFxbFFsLtm0SMPxJliLTGdNCA0Bq2XkWrAn2ejUd+89vZm+8BnfFB1BclJyCz3iKsm2atNg==
 
 webidl-conversions@^4.0.2:
   version "4.0.2"

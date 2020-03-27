@@ -12,21 +12,38 @@ block append content
         label(for='meal-swipes') Show Meal Swipes
         input#room-availability(type='checkbox' name='features' checked)
         label(for='room-availability') Room Availability
+        input#my-stevens(type='checkbox' name='features' checked)
+        label(for='my-stevens') MyStevens Info
     #tokens API Tokens
         h5 Canvas Token
-        p
-        | The Canvas token allows the web extension to access your Canvas, so it can
-        | show you useful information like your assignments. You must provide a Canvas
-        | token for Canvas Integration.
-        p
-        | To gain access to your Canvas token, navigate to
-        a(href="https://stevens.edu/canvas")  Canvas
-        |  and click on your
-        | profile. Click 'Settings' and scroll down until you see 'Approved Integrations.'
-        | Click the 'New Access Token' button and enter 'stevens-web-extension' in the
-        | textbox labeled 'Purpose'. Leave 'Expires' blank and generate the token. Copy
-        | this token and paste into the box below and submit it. You may also want to copy
-        | it somewhere else for safekeeping, as Canvas hides it after it first generates it.
+        p.
+            The Canvas token allows the web extension to access your Canvas, so it can.
+            show you useful information like your assignments. You must provide a Canvas.
+            token for Canvas Integration.
+        p.
+            To gain access to your Canvas token, navigate to
+            #[a(href="https://stevens.edu/canvas") Canvas] and click on your profile.
+            Click 'Settings' and scroll down until you see 'Approved Integrations.'
+            Click the 'New Access Token' button and enter 'stevens-web-extension' in
+            the textbox labeled 'Purpose'. Leave 'Expires' blank and generate the token.
+            Copy this token and paste into the box below and submit it. You may also
+            want to copy it somewhere else for safekeeping, as Canvas hides it after it
+            first generates it.
         p Note: DO NOT share your Canvas token with anyone!
         input#canvas-token(type='password' name='canvas' size=90 autocomplete='off'
         placeholder='Canvas API Token' spellcheck=false)
+        h5 Stevens Credentials
+        p.
+            In order to login to services such as myStevens, course registration,
+            and other Stevens services automatically, you can store your Stevens
+            credentials through the extension. Note: this data will only be stored
+            on your browser in localStorage - please acknowledge that this is very
+            dangerous and that you are accepting the risks associated with this
+            process. The extension will still be able to automatically pull data
+            from myStevens provided that you have logged in manually.
+        p You can always keep this feature disabled using the options above.
+        .auth
+            input#stevens-username(name='username' size=50 autocomplete='off'
+            placeholder='Stevens Username' spellcheck=false)
+            input#stevens-password(type='password' name='password' size=50 autocomplete='off'
+            placeholder='Stevens Password' spellcheck=false)

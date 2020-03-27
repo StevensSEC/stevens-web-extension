@@ -1,0 +1,13 @@
+block styles append
+    style(type='text/css').
+        #update-duckcard {
+            cursor: pointer;
+        }
+h3 Duckcard Status
+h5 Last Updated: #{updated}
+if hasAuth
+    each bal, acc in duckcard
+        .account= acc
+            span.balance : #{bal}
+else
+    .error Cannot get Duckcard data without Stevens credentials (see extension options)

@@ -8,7 +8,7 @@
         "bookmarks",
         "contextMenus",
         "storage",
-        "<all_urls>"
+        "tabs"
     ],
     "icons": {
         "128": "assets/icon128.png",
@@ -21,6 +21,13 @@
     "background": {
         "scripts": ["background.js"]
     },
+    "content_scripts": [
+        {
+            "matches": ["*://*.stevens.edu/*", "*://*.jsatech.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "options_ui": {
         "page": "options.html",
         "chrome_style": true,

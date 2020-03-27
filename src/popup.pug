@@ -5,10 +5,12 @@ block append head
         html {
             width: 600px;
         }
-    script(type='text/javascript' src='popup.js')
 block append content
     h1 Stevens Chrome Extension
     #canvas-integration
-        include features/canvas/CanvasDisplay.pug
+        include features/Canvas/CanvasDisplay.pug
+    #update-duckcard Refresh
+    #my-stevens
+        include features/MyStevens/MyStevensDisplay.pug
     #free-rooms
-        include features/freeRooms/FreeRoomsDisplay.pug
+        include features/FreeRooms/FreeRoomsDisplay.pug

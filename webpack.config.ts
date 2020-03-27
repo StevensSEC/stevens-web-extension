@@ -9,6 +9,7 @@ const config = {
     node: {
         fs: 'empty',
     },
+    target: 'node',
     devtool:
         process.env.NODE_ENV === 'production'
             ? 'inline-source-map'
@@ -21,6 +22,7 @@ const config = {
         background: path.join(__dirname, 'src/background.ts'),
         options: path.join(__dirname, 'src/options.ts'),
         popup: path.join(__dirname, 'src/popup.ts'),
+        content: path.join(__dirname, 'src/content.ts'),
     },
     output: {
         path: path.join(__dirname, 'dist'),

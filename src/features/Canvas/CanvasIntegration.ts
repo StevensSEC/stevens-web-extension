@@ -1,9 +1,9 @@
 // import moment from 'moment';
 // Initialize Canvas polling
 const CANVAS_API = 'https://sit.instructure.com/api/v1/';
-function getUpcomingAssignments() {
+function getAssignments() {
     chrome.storage.local.get('tokens', ({tokens}) => {
-        if (tokens.canvas) {
+        if (tokens && tokens.canvas) {
             const AUTH = '?access_token=' + tokens.canvas;
             fetch(CANVAS_API + 'users/self/upcoming_events' + AUTH)
                 .then(
@@ -26,7 +26,7 @@ function getUpcomingAssignments() {
                             };
                         });
                     chrome.storage.local.set({
-                        upcomingAssignments: assignments,
+                        assignments: assignments,
                     });
                 });
         } else {
@@ -35,14 +35,14 @@ function getUpcomingAssignments() {
     });
 }
 chrome.runtime.onInstalled.addListener(details => {
-    getUpcomingAssignments();
+    getAssignments();
     chrome.alarms.create('canvas', {
         periodInMinutes: 15,
     });
 
     chrome.alarms.onAlarm.addListener(alarm => {
         if (alarm.name === 'canvas') {
-            getUpcomingAssignments();
+            getAssignments();
         }
     });
 });
@@ -50,7 +50,7 @@ chrome.runtime.onInstalled.addListener(details => {
 chrome.storage.onChanged.addListener(changes => {
     for (let key in changes) {
         if (key === 'tokens') {
-            getUpcomingAssignments();
+            getAssignments();
         }
     }
 });

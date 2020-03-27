@@ -1,0 +1,11 @@
+h3 Upcoming Assignments
+if hasToken
+    each data in assignments ? assignments : []
+        .assignment
+            .title= data.title
+            .due= data.due
+            .created_at= data.created
+    else
+        .success There are no upcoming assignments. Yay :)
+else
+    .error No Canvas token found (see extension options page).
