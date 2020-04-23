@@ -1,0 +1,12 @@
+block styles append
+    style(type='text/css').
+        #schedule-img {
+            object-fit: contain;
+            max-width: 640px;
+        }
+h3 Duckscheduler
+button#screenshot Screenshot
+p You must be on https://duckscheduler.com to take a screenshot.
+h5 Your Schedule
+if schedule
+    img#schedule-img(src=schedule)
