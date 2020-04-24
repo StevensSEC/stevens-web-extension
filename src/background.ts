@@ -4,6 +4,7 @@ import './assets/icon48.png';
 import './assets/icon16.png';
 import './features/Canvas/CanvasIntegration';
 import './features/FreeRooms/FreeRooms';
+import {ScreenshotSchedule} from './features/Duckscheduler/Duckscheduler';
 import {GetMealSwipes} from './features/MyStevens/MyStevens';
 import './features/TempBookmarks/TemporaryBookmarks';
 import Settings from './shared/settings';
@@ -20,5 +21,8 @@ browser.runtime.onInstalled.addListener(Settings.resetSettings);
 browser.runtime.onMessage.addListener(async (msg, sender) => {
     if (msg.type === 'queryDuckcard') {
         await GetMealSwipes();
+    }
+    if (msg.type === 'screenshotSchedule') {
+        await ScreenshotSchedule();
     }
 });

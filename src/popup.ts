@@ -1,4 +1,5 @@
 const UpdateCanvas = require('./features/Canvas/CanvasDisplay.pug');
+const UpdateDuckscheduler = require('./features/Duckscheduler/DuckschedulerDisplay.pug');
 const UpdateRooms = require('./features/FreeRooms/FreeRoomsDisplay.pug');
 const UpdateMyStevens = require('./features/MyStevens/MyStevensDisplay.pug');
 import {browser} from 'webextension-polyfill-ts';
@@ -57,6 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
             log('Querying Duckcard info...');
             browser.runtime.sendMessage({
                 type: 'queryDuckcard',
+            });
+        });
+    });
+    // Duckscheduler
+    browser.storage.local.get('schedule').then(({schedule}) => {
+        if (schedule) {
+            log('Rendering schedule...');
+            $('#duckscheduler').html(
+                UpdateDuckscheduler({
+                    schedule: schedule,
+                })
+            );
+        }
+        $('#screenshot').on('click', e => {
+            browser.runtime.sendMessage({
+                type: 'screenshotSchedule',
             });
         });
     });
