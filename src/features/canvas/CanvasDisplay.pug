@@ -1,10 +1,11 @@
 style
     include CanvasDisplay.css
 h3 Upcoming Assignments
-each data in assignments ? assignments : []
+.assignment-container
+    each data in assignments ? assignments : []
     .assignment
         .title= data.title
         .due= data.due
         .created_at= data.created
-else
-    .no-assignments There are no upcoming assignments. Yay :)
+    else
+        .no-assignments There are no upcoming assignments. Yay :)
